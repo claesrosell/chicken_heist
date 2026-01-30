@@ -21,24 +21,23 @@ scale = Vector2(0.65625, 1)
 texture = ExtResource("1_trxgw")
 
 [node name="Raccon" type="Node2D" parent="CharacterBody2D" unique_id=1911921274]
+position = Vector2(76, -2)
 script = ExtResource("2_ul4o7")
 
 [node name="RacconSprite" type="Sprite2D" parent="CharacterBody2D/Raccon" unique_id=2010162085]
-position = Vector2(72.99999, 4.0000014)
 scale = Vector2(0.39062503, 0.640625)
 texture = ExtResource("1_trxgw")
 
 [node name="Aim" type="Node2D" parent="CharacterBody2D/Raccon" unique_id=2057916222]
+position = Vector2(269, 22)
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D/Raccon/Aim" unique_id=119631230]
-position = Vector2(476.9524, 26)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Raccon/Aim/Area2D" unique_id=613957683]
-position = Vector2(-37.151928, -25.043478)
+position = Vector2(-5.0000114, 4)
 shape = SubResource("CircleShape2D_r8ehe")
 
 [node name="AimSprite" type="Sprite2D" parent="CharacterBody2D/Raccon/Aim" unique_id=1872768331]
-position = Vector2(458.2071, 5.5652175)
 texture = ExtResource("3_r8ehe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=427005037]
