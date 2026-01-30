@@ -4,8 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="2_lnu2h"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://ckdieeg1ydj0t" path="res://scenes/hud.gd" id="4_iywne"]
+[ext_resource type="Script" uid="uid://cnmg7kv4dnsnr" path="res://scenes/timer.gd" id="5_iywne"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
+font = ExtResource("3_lnu2h")
+font_size = 48
+font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
+outline_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_iywne"]
 font = ExtResource("3_lnu2h")
 font_size = 48
 font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
@@ -27,8 +34,21 @@ offset_left = 36.0
 offset_top = 22.0
 offset_right = 225.0
 offset_bottom = 80.0
-text = "Score : 0"
+text = "Score: 0"
 label_settings = SubResource("LabelSettings_lbhrr")
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=1091903951]
+offset_left = 1654.0
+offset_top = 21.0
+offset_right = 1759.0
+offset_bottom = 79.0
+text = "Time:"
+label_settings = SubResource("LabelSettings_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050070863]
 position = Vector2(960, 533)
+
+[node name="Timer" type="Timer" parent="." unique_id=76409513]
+wait_time = 0.1
+autostart = true
+script = ExtResource("5_iywne")
