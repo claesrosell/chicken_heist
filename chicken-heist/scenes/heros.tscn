@@ -15,6 +15,9 @@ height = 158.0
 [node name="Heros" type="Node2D" unique_id=725536863]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1996094320]
+motion_mode = 1
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_pqwd8")
 
 [node name="Fox" type="Sprite2D" parent="CharacterBody2D" unique_id=1368770807]
