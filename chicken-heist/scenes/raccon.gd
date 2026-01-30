@@ -47,7 +47,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("lasso_fire"):
 		print("fire")
 		if current_pickable != null:
-			print("score: " + str(current_pickable.getPoints()))
+			Game.modify_score(current_pickable.get_points())
+			current_pickable.picked()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is Pickable && current_pickable == null:

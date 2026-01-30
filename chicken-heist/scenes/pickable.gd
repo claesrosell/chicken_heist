@@ -10,6 +10,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func getPoints() -> int:
+func get_points() -> int:
 	return 10
+
+func picked() -> void:
+	queue_free()
