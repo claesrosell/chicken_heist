@@ -1,5 +1,6 @@
-extends Area2D
+@abstract
 class_name Pickable
+extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,8 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func get_points() -> int:
-	return 10
-
-func picked() -> void:
-	queue_free()
+@abstract func get_points()
+@abstract func picked()
