@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://nhbdaxqsnau8"]
 
+[ext_resource type="Script" uid="uid://bvcjsbiyaxutr" path="res://scenes/heroes_mc.gd" id="1_pqwd8"]
 [ext_resource type="Texture2D" uid="uid://dtvj7uxoe04w4" path="res://icon.svg" id="1_trxgw"]
 [ext_resource type="Script" uid="uid://c7jsu6tx2m4ku" path="res://scenes/raccon.gd" id="2_ul4o7"]
 [ext_resource type="Texture2D" uid="uid://brtn7qbjk1ysc" path="res://art/lasso-aim.png" id="3_r8ehe"]
@@ -14,6 +15,7 @@ height = 158.0
 [node name="Heros" type="Node2D" unique_id=725536863]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1996094320]
+script = ExtResource("1_pqwd8")
 
 [node name="Fox" type="Sprite2D" parent="CharacterBody2D" unique_id=1368770807]
 position = Vector2(-1.000001, 0)
