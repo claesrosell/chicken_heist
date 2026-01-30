@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://cylcpiquxa8co"]
 
+[ext_resource type="Texture2D" uid="uid://xehxy0dw6cp7" path="res://art/GameBoard.png" id="1_014kd"]
+
 [node name="Level1" type="Node2D" unique_id=1343519134]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1948101070]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_014kd")
