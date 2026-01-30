@@ -1,7 +1,7 @@
-extends Sprite2D
+extends Node2D
 
 var aim_vector : Vector2
-@onready var aim: Sprite2D = $Aim
+@onready var aim: Node2D = $Aim
 
 var shot_to := Vector2.ZERO
 

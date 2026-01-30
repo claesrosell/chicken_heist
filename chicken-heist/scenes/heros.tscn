@@ -8,7 +8,7 @@
 radius = 68.33886
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nemsi"]
-radius = 62.0
+radius = 72.0
 height = 158.0
 
 [node name="Heros" type="Node2D" unique_id=725536863]
@@ -21,12 +21,12 @@ scale = Vector2(0.65625, 1)
 texture = ExtResource("1_trxgw")
 
 [node name="Raccon" type="Node2D" parent="CharacterBody2D" unique_id=1911921274]
-position = Vector2(65, 0)
-scale = Vector2(0.65625, 1)
+script = ExtResource("2_ul4o7")
 
 [node name="RacconSprite" type="Sprite2D" parent="CharacterBody2D/Raccon" unique_id=2010162085]
+position = Vector2(72.99999, 4.0000014)
+scale = Vector2(0.39062503, 0.640625)
 texture = ExtResource("1_trxgw")
-script = ExtResource("2_ul4o7")
 
 [node name="Aim" type="Node2D" parent="CharacterBody2D/Raccon" unique_id=2057916222]
 
@@ -42,5 +42,5 @@ position = Vector2(458.2071, 5.5652175)
 texture = ExtResource("3_r8ehe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=427005037]
-position = Vector2(20, -3)
+position = Vector2(22, -3)
 shape = SubResource("CapsuleShape2D_nemsi")
