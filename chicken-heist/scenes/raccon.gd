@@ -9,6 +9,8 @@ var shot_to := Vector2.ZERO
 @export var aim_speed := 500.0
 @export var aim_retract_speed := 10.0
 
+var current_pickable : Pickable
+
 func _ready() -> void:
 	aim_vector = Vector2(1, 0)
 
@@ -44,4 +46,15 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("lasso_fire"):
 		print("fire")
-#		shot_to = shoot_vector
+		if current_pickable != null:
+			print("score: " + str(current_pickable.getPoints()))
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area is Pickable && current_pickable == null:
+		current_pickable = area
+		print("hen entered")
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area is Pickable && current_pickable == area:
+		current_pickable = null
+		print("hen exit")

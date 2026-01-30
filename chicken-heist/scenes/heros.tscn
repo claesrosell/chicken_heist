@@ -34,6 +34,8 @@ texture = ExtResource("1_trxgw")
 position = Vector2(269, 22)
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D/Raccon/Aim" unique_id=119631230]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Raccon/Aim/Area2D" unique_id=613957683]
 position = Vector2(-5.0000114, 4)
@@ -45,3 +47,6 @@ texture = ExtResource("3_r8ehe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=427005037]
 position = Vector2(22, -3)
 shape = SubResource("CapsuleShape2D_nemsi")
+
+[connection signal="area_entered" from="CharacterBody2D/Raccon/Aim/Area2D" to="CharacterBody2D/Raccon" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="CharacterBody2D/Raccon/Aim/Area2D" to="CharacterBody2D/Raccon" method="_on_area_2d_area_exited"]
