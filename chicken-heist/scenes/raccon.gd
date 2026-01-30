@@ -22,6 +22,6 @@ func _process(delta: float) -> void:
 #	line_2d.set_point_position(0, self.global_position)
 #	line_2d.set_point_position(1, self.global_position + shot_to)
 
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("lasso_fire"):
 		print("fire")
 		shot_to = shoot_vector
