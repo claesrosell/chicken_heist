@@ -45,23 +45,28 @@ mc_handbreak={
 }
 lasso_left={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
+]
 }
 lasso_right={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
+]
 }
 lasso_up={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
+]
 }
 lasso_down={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+]
 }
 lasso_fire={
 "deadzone": 0.2,
-"events": []
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+]
 }
 
 [physics]
