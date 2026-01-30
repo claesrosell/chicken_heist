@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://nhbdaxqsnau8"]
+
+[ext_resource type="Texture2D" uid="uid://dtvj7uxoe04w4" path="res://icon.svg" id="1_trxgw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nemsi"]
+radius = 62.0
+height = 158.0
+
+[node name="Heros" type="Node2D" unique_id=725536863]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1996094320]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1368770807]
+position = Vector2(-1.000001, 0)
+scale = Vector2(0.65625, 1)
+texture = ExtResource("1_trxgw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D/Sprite2D" unique_id=2010162085]
+position = Vector2(100.57143, 0)
+scale = Vector2(0.4921875, 0.71875)
+texture = ExtResource("1_trxgw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=427005037]
+position = Vector2(20, -3)
+shape = SubResource("CapsuleShape2D_nemsi")

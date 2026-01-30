@@ -1,0 +1,74 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="chicken_heist"
+run/main_scene="uid://c2cwesasr3285"
+config/features=PackedStringArray("4.6", "Mobile")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[input]
+
+mc_left={
+"deadzone": 0.2,
+"events": []
+}
+mc_right={
+"deadzone": 0.2,
+"events": []
+}
+mc_accelerate={
+"deadzone": 0.2,
+"events": []
+}
+mc_brake={
+"deadzone": 0.2,
+"events": []
+}
+mc_handbreak={
+"deadzone": 0.2,
+"events": []
+}
+lasso_left={
+"deadzone": 0.2,
+"events": []
+}
+lasso_right={
+"deadzone": 0.2,
+"events": []
+}
+lasso_up={
+"deadzone": 0.2,
+"events": []
+}
+lasso_down={
+"deadzone": 0.2,
+"events": []
+}
+lasso_fire={
+"deadzone": 0.2,
+"events": []
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

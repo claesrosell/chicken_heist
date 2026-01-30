@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2cwesasr3285"]
+
+[ext_resource type="PackedScene" uid="uid://cylcpiquxa8co" path="res://scenes/level_1.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node2D" unique_id=71027847]
+
+[node name="Level1" parent="." unique_id=1343519134 instance=ExtResource("1_yqjtg")]
+
+[node name="Heros" parent="." unique_id=725536863 instance=ExtResource("2_lnu2h")]
+position = Vector2(988, 446)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1238409925]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2050070863]
+position = Vector2(960, 533)
