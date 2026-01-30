@@ -1,9 +1,19 @@
 [gd_scene format=3 uid="uid://c2cwesasr3285"]
 
+[ext_resource type="Script" uid="uid://fek0gxf6pxmb" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cylcpiquxa8co" path="res://scenes/level_1.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="2_lnu2h"]
+[ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://ckdieeg1ydj0t" path="res://scenes/hud.gd" id="4_iywne"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
+font = ExtResource("3_lnu2h")
+font_size = 48
+font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
+outline_size = 10
 
 [node name="Game" type="Node2D" unique_id=71027847]
+script = ExtResource("1_lbhrr")
 
 [node name="Level1" parent="." unique_id=1343519134 instance=ExtResource("1_yqjtg")]
 position = Vector2(957, 537)
@@ -12,6 +22,15 @@ position = Vector2(957, 537)
 position = Vector2(988, 446)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1238409925]
+script = ExtResource("4_iywne")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=251934372]
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 225.0
+offset_bottom = 80.0
+text = "Score : -1"
+label_settings = SubResource("LabelSettings_lbhrr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050070863]
 position = Vector2(960, 533)
