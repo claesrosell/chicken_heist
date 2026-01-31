@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xehxy0dw6cp7" path="res://art/GameBoard.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://bn6h61u5pr2ou" path="res://scenes/hen/hen.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://cjtqskutwfbip" path="res://scenes/gate/gate.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="5_4nkto"]
 
 [sub_resource type="Animation" id="Animation_rus8k"]
 resource_name = "start"
@@ -49,6 +50,9 @@ polygon = PackedVector2Array(-962, 342, -863, 259, -915, 139, -921, 34, -853, -9
 position = Vector2(-871.0001, 271.99997)
 rotation = 0.69464105
 scale = Vector2(0.5, 0.5)
+
+[node name="Heros" parent="." unique_id=725536863 instance=ExtResource("5_4nkto")]
+position = Vector2(-942, 447.00003)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=394816595]
 libraries/ = SubResource("AnimationLibrary_5xbjy")
