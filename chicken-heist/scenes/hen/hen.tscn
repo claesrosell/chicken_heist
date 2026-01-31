@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c43nqxfssprc3" path="res://scenes/hen/chicken-430403.mp3" id="5_nvtit"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4bd2"]
-radius = 28.01785
+radius = 49.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvtit"]
 height = 46.0
@@ -106,7 +106,6 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_nvtit"]
 resource_name = "picked"
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -126,12 +125,9 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.93333334),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -328,7 +324,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.2882003107573166]
+"values": [3.288200310757317]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -497,13 +493,11 @@ stream = ExtResource("5_nvtit")
 [node name="Area2D" type="Area2D" parent="." unique_id=591426240]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=29020328]
-visible = false
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_m4bd2")
 debug_color = Color(0.7224758, 0.4782316, 0.038174424, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450769451]
-visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_nvtit")
 
@@ -512,7 +506,6 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="FleeingArea" type="CollisionShape2D" parent="Area2D2" unique_id=1233800653]
-visible = false
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_nvtit")
 

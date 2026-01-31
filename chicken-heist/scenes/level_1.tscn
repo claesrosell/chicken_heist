@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bn6h61u5pr2ou" path="res://scenes/hen/hen.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://cjtqskutwfbip" path="res://scenes/gate/gate.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://cwnh4h4y8r1lv" path="res://scenes/hen/hen_spawner.tscn" id="6_fcfvj"]
 
 [sub_resource type="Animation" id="Animation_rus8k"]
 resource_name = "start"
@@ -57,3 +58,6 @@ rotation = -0.8165595
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=394816595]
 libraries/ = SubResource("AnimationLibrary_5xbjy")
+
+[node name="HenSpawner" parent="." unique_id=1009473354 instance=ExtResource("6_fcfvj")]
+position = Vector2(-680, -293)

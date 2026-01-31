@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cwnh4h4y8r1lv"]
+
+[ext_resource type="Script" uid="uid://dgg7eamdy3f1k" path="res://scenes/hen_spawner.gd" id="1_36l00"]
+
+[node name="HenSpawner" type="Node2D" unique_id=1009473354]
+script = ExtResource("1_36l00")
+
+[node name="Hens" type="Node2D" parent="." unique_id=1513024751]

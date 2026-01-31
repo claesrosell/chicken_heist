@@ -1,4 +1,6 @@
 extends Pickable
+class_name Hen
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $ChickenBody
 @onready var area_2d_2: Area2D = $Area2D2
@@ -9,32 +11,37 @@ extends Pickable
 @export var running_area_size : float = 500
 
 var movement_vector : Vector2 = Vector2.ZERO
-#var target_position : Vector2 = Vector2.ZERO
 var state_time_left : float = 5
-#var last_position : Vector2
 
 enum HenState {Picking, Walking, Running}
 var current_state = HenState.Walking
 
 var idle_time: float = 0.0
+var is_picked = false
+var time_to_death : float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.horn_pressed.connect(_on_horn_pressed)
 
+func _process(delta: float) -> void:
+
+	if is_picked == true:
+		time_to_death -= delta
+		if time_to_death <= 0:
+			print("death")
+			queue_free()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 
 	if current_state == HenState.Picking:
-		print("In picking")
 		velocity = Vector2.ZERO
 
 	if current_state == HenState.Walking:
-		print("In Walking")
 		velocity = movement_vector
 
 	if current_state == HenState.Running:
-		print("In Running")
 		velocity = movement_vector
 
 	if state_time_left <= 0:
@@ -50,27 +57,9 @@ func _physics_process(delta: float) -> void:
 	if current_state != HenState.Picking:
 		var target_angle =  movement_vector.angle() + PI / 2
 		var lerped_angle = lerp_angle(self.rotation, target_angle , 0.5 )
-		print("target angle: " + str(target_angle) + " lerped angle: " + str(lerped_angle))
 		self.rotation = lerped_angle
 
-#	last_position = self.global_position
 	move_and_slide()
-
-func _track_movement(delta: float) -> bool:
-
-	var has_moved := true
-
-	# Check if the character is actually moving
-	if velocity.length() > 0.1:
-		idle_time = 0.0 # Reset if moving
-	else:
-		idle_time += delta # Accumulate time if still
-
-	if idle_time >= 2.0:
-		has_moved = false
-		print("Character has been still for at least 2 seconds")
-
-	return has_moved
 
 func _set_state(new_state : HenState):
 	if new_state != current_state:
@@ -103,6 +92,8 @@ func get_points() -> int:
 
 func picked() -> void:
 	area_2d_2.monitorable = false
+	is_picked = true
+	time_to_death = 1
 	animation_player.play("picked")
 
 func _on_horn_pressed() -> void:
@@ -114,7 +105,3 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	var flee_vector = (body.global_position - self.global_position) * -1.0
 	flee_vector = flee_vector.rotated( deg_to_rad(randf_range(-45, 45)))
 	flee_vector = flee_vector.normalized() * running_area_size
-
-#	var target_x = randf_range(-walking_area_size/2, walking_area_size/2)
-#	var target_y = randf_range(-walking_area_size/2, walking_area_size/2)
-#	target_position = self.global_position + flee_vector
