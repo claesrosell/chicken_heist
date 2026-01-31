@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cjagoq00m4k0a"]
+
+[ext_resource type="Script" uid="uid://b36ocx8itdb48" path="res://scenes/high_score/name_input_control.gd" id="1_lqkrw"]
+[ext_resource type="LabelSettings" uid="uid://bx25fnbgb8rxt" path="res://scenes/high_score/letter_label_settings.tres" id="2_hu5ny"]
+
+[node name="NameInputControl" type="Control" unique_id=437404034]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lqkrw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=703630847]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1306409653]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Letter1" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=97545092]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+text = "M"
+label_settings = ExtResource("2_hu5ny")
+
+[node name="Letter2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=438504416]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+text = "M"
+label_settings = ExtResource("2_hu5ny")
+
+[node name="Letter3" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=594466476]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+text = "M"
+label_settings = ExtResource("2_hu5ny")
