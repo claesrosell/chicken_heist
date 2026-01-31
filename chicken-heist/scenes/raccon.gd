@@ -51,11 +51,15 @@ func _process(delta: float) -> void:
 			current_pickable.picked()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area is Pickable && current_pickable == null:
-		current_pickable = area
+
+	var owner = area.get_parent()
+
+	if owner is Pickable && current_pickable == null:
+		current_pickable = owner
 		print("hen entered")
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area is Pickable && current_pickable == area:
+	var owner = area.get_parent()
+	if owner is Pickable && current_pickable == owner:
 		current_pickable = null
 		print("hen exit")

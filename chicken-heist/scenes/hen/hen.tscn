@@ -6,9 +6,6 @@
 [ext_resource type="Material" uid="uid://ba14iin4xsh0c" path="res://scenes/hen/feather_smoke.tres" id="3_olu3x"]
 [ext_resource type="AudioStream" uid="uid://c43nqxfssprc3" path="res://scenes/hen/chicken-430403.mp3" id="5_nvtit"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m4bd2"]
-radius = 35.057095
-
 [sub_resource type="Animation" id="Animation_flgcf"]
 length = 0.001
 tracks/0/type = "value"
@@ -84,7 +81,17 @@ _data = {
 &"picked": SubResource("Animation_nvtit")
 }
 
-[node name="Hen" type="Area2D" unique_id=1699060077]
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4bd2"]
+radius = 35.057095
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvtit"]
+radius = 19.0
+height = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvtit"]
+radius = 176.47946
+
+[node name="Hen" type="CharacterBody2D" unique_id=1526162060]
 collision_layer = 4
 script = ExtResource("1_m4bd2")
 
@@ -92,9 +99,6 @@ script = ExtResource("1_m4bd2")
 position = Vector2(0, 0.5)
 scale = Vector2(0.5, 0.4609375)
 texture = ExtResource("1_pat65")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=29020328]
-shape = SubResource("CircleShape2D_m4bd2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1552330424]
 libraries/ = SubResource("AnimationLibrary_thnme")
@@ -110,3 +114,24 @@ process_material = ExtResource("3_olu3x")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=440659320]
 stream = ExtResource("5_nvtit")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=591426240]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=29020328]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_m4bd2")
+debug_color = Color(0.7224758, 0.4782316, 0.038174424, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450769451]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_nvtit")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1898933534]
+collision_layer = 4
+collision_mask = 2
+
+[node name="FleeingArea" type="CollisionShape2D" parent="Area2D2" unique_id=1233800653]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_nvtit")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
