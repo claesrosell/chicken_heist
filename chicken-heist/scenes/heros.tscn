@@ -14,56 +14,54 @@ radius = 68.33886
 radius = 68.0
 height = 136.0
 
-[node name="Heros" type="Node2D" unique_id=725536863]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1996094320]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1996094320]
 motion_mode = 1
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_pqwd8")
 
-[node name="SteeringWheel" type="Sprite2D" parent="CharacterBody2D" unique_id=662660253]
+[node name="SteeringWheel" type="Sprite2D" parent="." unique_id=662660253]
 position = Vector2(77.30203, 11.458)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4jf0f")
 offset = Vector2(53.95851, 41.95898)
 
-[node name="Fox" type="Sprite2D" parent="CharacterBody2D" unique_id=1368770807]
+[node name="Fox" type="Sprite2D" parent="." unique_id=1368770807]
 position = Vector2(56, 38)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_h5dhg")
 
-[node name="Raccon" type="Node2D" parent="CharacterBody2D" unique_id=1911921274]
+[node name="Raccon" type="Node2D" parent="." unique_id=1911921274]
 position = Vector2(76, -2)
 script = ExtResource("2_ul4o7")
 
-[node name="RacconSprite" type="Sprite2D" parent="CharacterBody2D/Raccon" unique_id=2010162085]
+[node name="RacconSprite" type="Sprite2D" parent="Raccon" unique_id=2010162085]
 z_index = -10
 position = Vector2(-22, 40)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_x2u3k")
 
-[node name="Aim" type="Node2D" parent="CharacterBody2D/Raccon" unique_id=2057916222]
+[node name="Aim" type="Node2D" parent="Raccon" unique_id=2057916222]
 position = Vector2(269, 22)
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D/Raccon/Aim" unique_id=119631230]
+[node name="Area2D" type="Area2D" parent="Raccon/Aim" unique_id=119631230]
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Raccon/Aim/Area2D" unique_id=613957683]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Raccon/Aim/Area2D" unique_id=613957683]
 position = Vector2(-5.0000114, 4)
 shape = SubResource("CircleShape2D_r8ehe")
 
-[node name="AimSprite" type="Sprite2D" parent="CharacterBody2D/Raccon/Aim" unique_id=1872768331]
+[node name="AimSprite" type="Sprite2D" parent="Raccon/Aim" unique_id=1872768331]
 texture = ExtResource("3_r8ehe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=427005037]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427005037]
 position = Vector2(45, 34)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_nemsi")
 
-[connection signal="area_entered" from="CharacterBody2D/Raccon/Aim/Area2D" to="CharacterBody2D/Raccon" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D/Raccon/Aim/Area2D" to="CharacterBody2D/Raccon" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_exited"]
