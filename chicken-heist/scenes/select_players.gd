@@ -92,16 +92,16 @@ func check_start() -> void:
 		# Determine who controls which character based on their choice
 		# If P1 chose FOXY, they are "p1" for Foxy. Otherwise, P2 is "p1" for Foxy.
 		if p1_choice == Character.FOXY:
-			Game.foxy_controls.set_player("p1")
-			Game.rocky_controls.set_player("p2")
+			GameManager.foxy_controls.set_player("p1")
+			GameManager.rocky_controls.set_player("p2")
 		else:
-			Game.foxy_controls.set_player("p2")
-			Game.rocky_controls.set_player("p1")
+			GameManager.foxy_controls.set_player("p2")
+			GameManager.rocky_controls.set_player("p1")
 
 		# Global resets
-		Game.score = 0
-		Game.time_left = 90 * 1000
-		Game.time_up_fired = false
+		GameManager.score = 0
+		GameManager.time_left = 90 * 1000
+		GameManager.time_up_fired = false
 
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
