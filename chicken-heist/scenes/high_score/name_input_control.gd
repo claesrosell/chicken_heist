@@ -9,6 +9,7 @@ var down_action := "ui_down"
 var left_action := "ui_left"
 var right_action := "ui_right"
 var accept_action := "ui_accept"
+var cancel_action := "ui_cancel"
 
 # The available characters
 const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .!?"
@@ -21,12 +22,13 @@ var max_slots := 3
 func _ready() -> void:
 	update_visuals()
 
-func set_actions(up_action:String, down_action:String, left_action:String, right_action:String, accept_action:String) -> void:
+func set_actions(up_action:String, down_action:String, left_action:String, right_action:String, accept_action:String, cancel_action:String) -> void:
 	self.up_action = up_action
 	self.down_action = down_action
 	self.left_action = left_action
 	self.right_action = right_action
 	self.accept_action = accept_action
+	self.cancel_action = cancel_action
 
 func test_method(test:String) -> void:
 	print("Test: %s" % test )
@@ -41,14 +43,11 @@ func _input(event: InputEvent) -> void:
 		change_letter(-1)
 		
 	# 2. Change Slot (Left/Right)
-	elif event.is_action_pressed(self.right_action):
-		change_slot(1)
-	elif event.is_action_pressed(self.left_action):
-		change_slot(-1)
-		
-	# 3. Submit (Accept/Start)
 	elif event.is_action_pressed(self.accept_action):
-		submit_name()
+		change_slot(1)
+	elif event.is_action_pressed(self.cancel_action):
+		change_slot(-1)
+
 
 func change_letter(direction: int) -> void:
 	# Update the index for the currently active slot
@@ -67,9 +66,9 @@ func change_letter(direction: int) -> void:
 func change_slot(direction: int) -> void:
 	current_slot += direction
 	
-	# Wrap around slots (Slot 3 -> Slot 1)
+	# If we are at the last slot. - Sumit name
 	if current_slot >= max_slots:
-		current_slot = 0
+		submit_name()
 	elif current_slot < 0:
 		current_slot = max_slots - 1
 		

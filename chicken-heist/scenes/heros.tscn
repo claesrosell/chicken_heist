@@ -147,6 +147,7 @@ shape = SubResource("CircleShape2D_r8ehe")
 texture = ExtResource("3_r8ehe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427005037]
+visible = false
 position = Vector2(45, 34)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_nemsi")

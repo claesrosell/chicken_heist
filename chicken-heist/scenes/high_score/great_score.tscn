@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://beshlcmptumn" path="res://scenes/high_score/high_score.png" id="1_xrwdm"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="2_8y2ui"]
 [ext_resource type="PackedScene" uid="uid://cjagoq00m4k0a" path="res://scenes/high_score/NameInputControl.tscn" id="3_8y2ui"]
+[ext_resource type="PackedScene" uid="uid://bi0f55lc440oy" path="res://scenes/high_score/HighScoresAPI.tscn" id="5_kfx0r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6em8q"]
 font = ExtResource("2_8y2ui")
@@ -63,3 +64,5 @@ offset_top = 280.0
 offset_right = 476.0
 offset_bottom = 280.0
 player_id = "foxy"
+
+[node name="HighScoresApi" parent="." unique_id=973043029 instance=ExtResource("5_kfx0r")]

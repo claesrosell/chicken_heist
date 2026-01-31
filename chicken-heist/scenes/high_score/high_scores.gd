@@ -1,15 +1,13 @@
 extends Control
 
 # The URL to your API
-const SCORE_URL = "https://theball.se/TreGubbar/services/hiscore.php"
-
 var score_header_settings:LabelSettings
 var score_label_settings:LabelSettings
 
 const RESULT_COLOR := Color("932d2b") # Dark Red (Unselected)
 const RESULT_OUTLINE_COLOR := Color.WHITE
 
-@onready var http_request: HTTPRequest = $HTTPRequest
+@onready var high_scores_api: HighScoresApi = $HighScoresApi
 @onready var score_grid: GridContainer = $ScrollContainer/HighScoreContainer
 
 func _ready() -> void:
@@ -24,16 +22,28 @@ func _ready() -> void:
 	self.score_label_settings.font_color = RESULT_COLOR
 	self.score_label_settings.outline_color = Color.WHITE # The "Outline" color
 	self.score_label_settings.outline_size = 10            # Size in pixels (Must be > 0 to see it)
-	
-	# Set up the request signal
-	http_request.request_completed.connect(_on_request_completed)
 
-	add_header_row()
+	_add_header_row()
+
+	# The API emits 'scores_loaded' with the data array. Populate the table with that payload!
+	high_scores_api.scores_loaded.connect(_populate_table)
 
 	# Fetch the data
-	fetch_highscores()
+	var fetch_around_rank = GameManager.latest_rank_achieved
+	if fetch_around_rank < 1:
+		fetch_around_rank = 1
 
-func add_header_row() -> void:
+	high_scores_api.fetch_around_rank(fetch_around_rank, 10)
+
+	# create_timer returns a SceneTreeTimer which cleans itself up automatically
+	get_tree().create_timer(7.0).timeout.connect(_return_to_main_menu)
+	
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("p1_button_a") or Input.is_action_just_pressed("p1_button_b") or Input.is_action_just_pressed("p2_button_a") or Input.is_action_just_pressed("p2_button_b"):
+		self._return_to_main_menu()
+
+func _add_header_row() -> void:
 	# Headers must match the GridContainer column count (4)
 	var headers = ["Pos", "Rocky", "Foxy", "Score"]
 	for title in headers:
@@ -44,44 +54,15 @@ func add_header_row() -> void:
 		label.size_flags_horizontal = SIZE_EXPAND_FILL
 		score_grid.add_child(label)
 
-func fetch_highscores() -> void:
-	# Create the request
-	var error = http_request.request(SCORE_URL)
-	if error != OK:
-		print("An error occurred in the HTTP request.")
-
-func _on_request_completed(result, response_code, headers, body):
-	if response_code != 200:
-		print("Error: ", response_code)
-		return
-
-	# Parse JSON
-	var json = JSON.new()
-	var parse_result = json.parse(body.get_string_from_utf8())
-	
-	if parse_result != OK:
-		print("JSON Parse Error: ", json.get_error_message())
-		return
-
-	# Get the data dictionary
-	var response = json.data
-	
-	# Check if "data" key exists in your specific JSON structure
-	if response.has("data"):
-		populate_table(response["data"])
-	else:
-		print("Unexpected JSON structure")
-
-func populate_table(data_array: Array) -> void:
+func _populate_table(data_array: Array) -> void:
 	# Loop through the list of scores
 	for entry in data_array:
-		create_cell("%d" % entry["position"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
-		create_cell(entry["name1"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
-		create_cell(entry["name2"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
-		create_cell("%d" % entry["score"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
+		_create_cell("%d" % entry["position"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
+		_create_cell(entry["name1"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
+		_create_cell(entry["name2"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
+		_create_cell("%d" % entry["score"], HorizontalAlignment.HORIZONTAL_ALIGNMENT_RIGHT)
 
-
-func create_cell(text: String, h_align:int) -> void:
+func _create_cell(text: String, h_align:int) -> void:
 	var label = Label.new()
 	label.text = text
 	label.label_settings = self.score_label_settings
@@ -90,17 +71,11 @@ func create_cell(text: String, h_align:int) -> void:
 	label.size_flags_horizontal = SIZE_EXPAND_FILL
 	score_grid.add_child(label)
 
-func format_unix_time(timestamp: int) -> String:
-	# Convert Unix int (e.g. 1769520221) to a dictionary
-	var date_dict = Time.get_datetime_dict_from_unix_time(timestamp)
-	
-	# Format: YYYY-MM-DD HH:MM
-	# %02d ensures "5" becomes "05"
-	var date_string = "%d-%02d-%02d %02d:%02d" % [
-		date_dict.year, 
-		date_dict.month, 
-		date_dict.day, 
-		date_dict.hour, 
-		date_dict.minute
-	]
-	return date_string
+func _return_to_main_menu() -> void:
+	# 2. Check if we are still in the scene tree to avoid errors
+	if not is_inside_tree():
+		return
+		
+	# 3. Change the scene back to the Main Menu
+	# Note: I used the filename 'main-menu.tscn' based on your file list
+	get_tree().change_scene_to_file("res://scenes/main_menu/main-menu.tscn")

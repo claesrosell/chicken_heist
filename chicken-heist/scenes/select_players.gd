@@ -100,7 +100,7 @@ func check_start() -> void:
 
 		# Global resets
 		GameManager.score = 0
-		GameManager.time_left = 10 * 1000	# Set this value to the length
+		GameManager.time_left = 90 * 1000	# Set this value to the length
 		GameManager.time_up_fired = false
 
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
