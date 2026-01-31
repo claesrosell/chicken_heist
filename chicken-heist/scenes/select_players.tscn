@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bcd7gr412yfx8"]
+
+[ext_resource type="Script" uid="uid://bhgjwqgad6jyt" path="res://scenes/select_players.gd" id="1_bn67b"]
+[ext_resource type="Texture2D" uid="uid://b36t8mhxypkj" path="res://art/insert_coin.png" id="2_u4xom"]
+[ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_fb5wn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jnqgf"]
+font = ExtResource("3_fb5wn")
+font_size = 50
+font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
+outline_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hkqe"]
+font = ExtResource("3_fb5wn")
+font_size = 50
+font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
+outline_size = 10
+
+[node name="SelectsPlayers" type="Node2D" unique_id=239726471]
+script = ExtResource("1_bn67b")
+
+[node name="Control" type="Control" parent="." unique_id=97299414]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=2117021157]
+position = Vector2(429, 191)
+texture = ExtResource("2_u4xom")
+
+[node name="HowToStartLabel" type="Label" parent="Control" unique_id=60596154]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 50.0
+offset_right = 611.0
+offset_bottom = 111.0
+text = "Press \"A\" to Start"
+label_settings = SubResource("LabelSettings_jnqgf")
+
+[node name="Player1Label" type="Label" parent="Control" unique_id=622849841]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 259.0
+offset_top = 163.0
+offset_right = 428.0
+offset_bottom = 224.0
+text = "Player 1"
+label_settings = SubResource("LabelSettings_3hkqe")
+
+[node name="Player2Label" type="Label" parent="Control" unique_id=1295406621]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 258.0
+offset_top = 221.0
+offset_right = 438.0
+offset_bottom = 282.0
+text = "Player 2"
+label_settings = SubResource("LabelSettings_3hkqe")
