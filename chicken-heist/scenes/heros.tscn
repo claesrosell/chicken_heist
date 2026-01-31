@@ -5,8 +5,16 @@
 [ext_resource type="Script" uid="uid://c7jsu6tx2m4ku" path="res://scenes/raccon.gd" id="2_ul4o7"]
 [ext_resource type="Texture2D" uid="uid://ctoj2fdcile87" path="res://art/Motorcycle.png" id="3_h5dhg"]
 [ext_resource type="Texture2D" uid="uid://brtn7qbjk1ysc" path="res://art/lasso-aim.png" id="3_r8ehe"]
+[ext_resource type="Texture2D" uid="uid://uhuklfe4wlaa" path="res://art/FoxyBody.png" id="4_tyrc1"]
+[ext_resource type="Texture2D" uid="uid://bjx3k1f26o0jw" path="res://art/FoxyTail.png" id="5_goik3"]
 [ext_resource type="Texture2D" uid="uid://bbi5dt6wjh5cb" path="res://art/Sidecar.png" id="5_x2u3k"]
+[ext_resource type="Texture2D" uid="uid://dhy5gyd2xe3ua" path="res://art/FoxyHead.png" id="6_uv8w7"]
 [ext_resource type="AudioStream" uid="uid://cxhgtydhj865s" path="res://sound/old-car-horn.mp3" id="7_h5dhg"]
+[ext_resource type="Texture2D" uid="uid://dkmjymm5l7sg" path="res://art/Rocky HandL.png" id="9_vjtpe"]
+[ext_resource type="Texture2D" uid="uid://xs16ct0a3cki" path="res://art/RockyHead.png" id="10_8l2jl"]
+[ext_resource type="Texture2D" uid="uid://dgo0i3wv8joow" path="res://art/Rocky HandR.png" id="11_ocldu"]
+[ext_resource type="Texture2D" uid="uid://crmld0efvy66b" path="res://art/RockyRope.png" id="12_s8iyv"]
+[ext_resource type="Texture2D" uid="uid://durx1703q0mit" path="res://art/RockyLasso.png" id="13_erexd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8ehe"]
 radius = 68.33886
@@ -35,6 +43,21 @@ rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_h5dhg")
 
+[node name="FoxyBody" type="Sprite2D" parent="Fox" unique_id=2013319255]
+position = Vector2(-55.75748, 36.26513)
+texture = ExtResource("4_tyrc1")
+offset = Vector2(55.75748, -36.26513)
+
+[node name="FoxyTail" type="Sprite2D" parent="Fox" unique_id=85522913]
+position = Vector2(-54.931442, 48.885555)
+texture = ExtResource("5_goik3")
+offset = Vector2(54.931442, -48.88556)
+
+[node name="FoxyHead" type="Sprite2D" parent="Fox" unique_id=1425789273]
+position = Vector2(-55.159, 8.035202)
+texture = ExtResource("6_uv8w7")
+offset = Vector2(55.159004, -8.035202)
+
 [node name="Raccon" type="Node2D" parent="." unique_id=1911921274]
 position = Vector2(76, -2)
 script = ExtResource("2_ul4o7")
@@ -45,6 +68,32 @@ position = Vector2(-22, 40)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_x2u3k")
+
+[node name="Rocky HandL" type="Sprite2D" parent="Raccon/RacconSprite" unique_id=1719115166]
+position = Vector2(40.869812, 25.300995)
+rotation = -0.68457925
+texture = ExtResource("9_vjtpe")
+offset = Vector2(-40.869812, -25.300995)
+
+[node name="RockyHead" type="Sprite2D" parent="Raccon/RacconSprite" unique_id=2132033291]
+position = Vector2(43.04612, 39.66452)
+texture = ExtResource("10_8l2jl")
+offset = Vector2(-43.04612, -39.66452)
+
+[node name="Rocky HandR" type="Sprite2D" parent="Raccon/RacconSprite" unique_id=921799488]
+position = Vector2(68.291084, 14.854797)
+texture = ExtResource("11_ocldu")
+offset = Vector2(-68.291084, -14.854797)
+
+[node name="RockyRope" type="Sprite2D" parent="Raccon/RacconSprite" unique_id=2112812517]
+position = Vector2(72.20841, 0.92652893)
+texture = ExtResource("12_s8iyv")
+offset = Vector2(-72.20841, -0.92652893)
+
+[node name="RockyLasso" type="Sprite2D" parent="Raccon/RacconSprite/RockyRope" unique_id=2056304203]
+position = Vector2(47.443146, -22.198158)
+texture = ExtResource("13_erexd")
+offset = Vector2(-119.65154, 21.271622)
 
 [node name="Aim" type="Node2D" parent="Raccon" unique_id=2057916222]
 position = Vector2(269, 22)
