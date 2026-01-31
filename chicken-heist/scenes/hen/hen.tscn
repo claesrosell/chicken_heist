@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://bn6h61u5pr2ou"]
 
 [ext_resource type="Script" uid="uid://hksnensmpj6n" path="res://scenes/hen/hen.gd" id="1_m4bd2"]
-[ext_resource type="Texture2D" uid="uid://dtvj7uxoe04w4" path="res://icon.svg" id="1_pat65"]
+[ext_resource type="Texture2D" uid="uid://brysb0vamikrr" path="res://art/ChickenHead.png" id="2_etj4v"]
 [ext_resource type="Texture2D" uid="uid://cummo64rb44eb" path="res://scenes/hen/feather.png" id="3_flgcf"]
+[ext_resource type="Texture2D" uid="uid://btrrtdtsbtjvv" path="res://art/ChickenBody.png" id="3_iywax"]
 [ext_resource type="Material" uid="uid://ba14iin4xsh0c" path="res://scenes/hen/feather_smoke.tres" id="3_olu3x"]
+[ext_resource type="Texture2D" uid="uid://bty20bdp1doyg" path="res://art/ChickenWing.png" id="4_3uchb"]
 [ext_resource type="AudioStream" uid="uid://c43nqxfssprc3" path="res://scenes/hen/chicken-430403.mp3" id="5_nvtit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4bd2"]
+radius = 28.01785
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvtit"]
+height = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvtit"]
+radius = 70.5762
 
 [sub_resource type="Animation" id="Animation_flgcf"]
 length = 0.001
@@ -31,6 +42,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChickenBody/ChickenWing:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5037419]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChickenBody/ChickenWing2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.624523]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChickenBody/ChickenHead:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ChickenBody/ChickenHead:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="Animation" id="Animation_nvtit"]
@@ -75,33 +134,148 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_etj4v"]
+resource_name = "picking"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChickenBody/ChickenWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5037419]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChickenBody/ChickenWing2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.624523]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChickenBody/ChickenHead:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 6), Vector2(0, -8), Vector2(0, 6), Vector2(0, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChickenBody/ChickenHead:scale")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3uchb"]
+resource_name = "walking"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChickenBody/ChickenWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5037419]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChickenBody/ChickenWing2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.624523]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChickenBody/ChickenHead:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 6), Vector2(0, -8), Vector2(0, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChickenBody/ChickenHead:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thnme"]
 _data = {
 &"RESET": SubResource("Animation_flgcf"),
-&"picked": SubResource("Animation_nvtit")
+&"picked": SubResource("Animation_nvtit"),
+&"picking": SubResource("Animation_etj4v"),
+&"walking": SubResource("Animation_3uchb")
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_m4bd2"]
-radius = 35.057095
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvtit"]
-radius = 19.0
-height = 58.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nvtit"]
-radius = 176.47946
 
 [node name="Hen" type="CharacterBody2D" unique_id=1526162060]
 collision_layer = 4
 script = ExtResource("1_m4bd2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=961465678]
-position = Vector2(0, 0.5)
-scale = Vector2(0.5, 0.4609375)
-texture = ExtResource("1_pat65")
+[node name="ChickenBody" type="Sprite2D" parent="." unique_id=961465678]
+texture = ExtResource("3_iywax")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1552330424]
-libraries/ = SubResource("AnimationLibrary_thnme")
+[node name="ChickenWing" type="Sprite2D" parent="ChickenBody" unique_id=2122287219]
+z_index = -10
+position = Vector2(8, -16)
+rotation = 1.5037419
+texture = ExtResource("4_3uchb")
+offset = Vector2(-12, 16)
+
+[node name="ChickenWing2" type="Sprite2D" parent="ChickenBody" unique_id=2100155636]
+z_index = -10
+position = Vector2(-10, -16)
+rotation = 1.624523
+scale = Vector2(1, -1)
+texture = ExtResource("4_3uchb")
+offset = Vector2(-13.670616, 15.401875)
+
+[node name="ChickenHead" type="Sprite2D" parent="ChickenBody" unique_id=1895744326]
+z_index = 10
+position = Vector2(0, -1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_etj4v")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1048707404]
 emitting = false
@@ -118,12 +292,14 @@ stream = ExtResource("5_nvtit")
 [node name="Area2D" type="Area2D" parent="." unique_id=591426240]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=29020328]
+visible = false
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_m4bd2")
 debug_color = Color(0.7224758, 0.4782316, 0.038174424, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1450769451]
-position = Vector2(1, 0)
+visible = false
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_nvtit")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1898933534]
@@ -131,7 +307,11 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="FleeingArea" type="CollisionShape2D" parent="Area2D2" unique_id=1233800653]
+visible = false
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_nvtit")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1552330424]
+libraries/ = SubResource("AnimationLibrary_thnme")
 
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

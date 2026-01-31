@@ -8,79 +8,93 @@ extends Pickable
 @export var running_speed : float = 500
 @export var running_area_size : float = 500
 
-var target_position : Vector2 = Vector2.ZERO
-var picking_time : float = 5
-var last_position : Vector2
+var movement_vector : Vector2 = Vector2.ZERO
+#var target_position : Vector2 = Vector2.ZERO
+var state_time_left : float = 5
+#var last_position : Vector2
 
 enum HenState {Picking, Walking, Running}
 var current_state = HenState.Walking
 
+var idle_time: float = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 
 	if current_state == HenState.Picking:
+		print("In picking")
 		velocity = Vector2.ZERO
-		if picking_time <= 0:
-			_set_state(HenState.Walking)
-
-		picking_time -= delta
 
 	if current_state == HenState.Walking:
-		_assign_walk_target_position()
-
-		var direction = target_position - self.global_position
-		velocity = direction.normalized() * walking_speed
+		print("In Walking")
+		velocity = movement_vector
 
 	if current_state == HenState.Running:
-		_assign_running_target_position()
+		print("In Running")
+		velocity = movement_vector
 
-		var direction = target_position - self.global_position
-		velocity = direction.normalized() * running_speed
+	if state_time_left <= 0:
+		if current_state == HenState.Picking:
+			_set_state(HenState.Walking)
+		elif current_state == HenState.Walking:
+			_set_state(HenState.Picking)
+		elif current_state == HenState.Running:
+			_set_state(HenState.Walking)
 
-	last_position = self.global_position
+	state_time_left -= delta
+
+	if current_state != HenState.Picking:
+		var target_angle =  movement_vector.angle() + PI / 2
+		var lerped_angle = lerp_angle(self.rotation, target_angle , 0.5 )
+		print("target angle: " + str(target_angle) + " lerped angle: " + str(lerped_angle))
+		self.rotation = lerped_angle
+
+#	last_position = self.global_position
 	move_and_slide()
+
+func _track_movement(delta: float) -> bool:
+
+	var has_moved := true
+
+	# Check if the character is actually moving
+	if velocity.length() > 0.1:
+		idle_time = 0.0 # Reset if moving
+	else:
+		idle_time += delta # Accumulate time if still
+
+	if idle_time >= 2.0:
+		has_moved = false
+		print("Character has been still for at least 2 seconds")
+
+	return has_moved
 
 func _set_state(new_state : HenState):
 	if new_state != current_state:
-		target_position = Vector2.ZERO
 		if new_state == HenState.Picking:
-			picking_time = 5
+			state_time_left = 5
+			movement_vector = Vector2.ZERO
+			animation_player.play("picking")
 
-	current_state = new_state
+		if new_state == HenState.Walking:
+			state_time_left = 5
+			var target_x = randf_range(-walking_area_size/2, walking_area_size/2)
+			var target_y = randf_range(-walking_area_size/2, walking_area_size/2)
+			movement_vector = Vector2(target_x, target_y).normalized() * walking_speed
+			animation_player.play("walking")
 
-func _assign_walk_target_position():
+		if new_state == HenState.Running:
+			state_time_left = 2
 
-#	var screen_size = get_viewport_rect().size
-	if (target_position - self.global_position).length() < 2:
-		target_position = Vector2.ZERO
-		_set_state( HenState.Picking )
+			var screen_size = get_viewport_rect().size
+			var target_x = randf_range( 100, screen_size.x - 100)
+			var target_y = randf_range(100, screen_size.y - 100)
+			movement_vector =  (Vector2(target_x, target_y) - self.global_position).normalized() * running_speed
 
-	if (last_position - self.global_position).length() < 1:
-		target_position = Vector2.ZERO
-
-	if target_position == Vector2.ZERO:
-		var target_x = randf_range(-walking_area_size/2, walking_area_size/2)
-		var target_y = randf_range(-walking_area_size/2, walking_area_size/2)
-		target_position = self.global_position + Vector2(target_x, target_y)
-
-func _assign_running_target_position():
-
-#	var screen_size = get_viewport_rect().size
-	if (target_position - self.global_position).length() < 5:
-		target_position = Vector2.ZERO
-		_set_state( HenState.Walking )
-
-	if (last_position - self.global_position).length() < 3:
-		target_position = Vector2.ZERO
-
-	if target_position == Vector2.ZERO:
-		var target_x = randf_range(-running_area_size/2, running_area_size/2)
-		var target_y = randf_range(-running_area_size/2, running_area_size/2)
-		target_position = self.global_position + Vector2(target_x, target_y)
+		current_state = new_state
 
 func get_points() -> int:
 	return 10
@@ -100,4 +114,4 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 
 #	var target_x = randf_range(-walking_area_size/2, walking_area_size/2)
 #	var target_y = randf_range(-walking_area_size/2, walking_area_size/2)
-	target_position = self.global_position + flee_vector
+#	target_position = self.global_position + flee_vector
