@@ -16,6 +16,9 @@ var rocky_accept: String
 var rocky_cancel: String
 
 func _init(prefix: String = "p2") -> void:
+	set_player(prefix)
+
+func set_player(prefix: String) -> void:
 	lasso_left = prefix + "_ls_left"
 	lasso_right = prefix + "_ls_right"
 	lasso_up = prefix + "_ls_up"
