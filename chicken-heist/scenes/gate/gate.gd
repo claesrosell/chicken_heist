@@ -1,4 +1,5 @@
 extends Node2D
+class_name Gate
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
@@ -16,4 +17,4 @@ func open2():
 	animation_player.play("open2")
 
 func close():
-	animation_player.play("closed")
+	animation_player.play("from_open_to_closed")

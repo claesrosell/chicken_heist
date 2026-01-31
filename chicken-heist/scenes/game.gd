@@ -29,7 +29,7 @@ func _on_eligibility_result(is_eligible: bool) -> void:
 	# Clean up connection so it doesn't fire twice
 	if self.online:
 		high_scores_api.eligibility_checked.disconnect(_on_eligibility_result)
-	
+
 	print("Passed eligibility is: ", is_eligible)
 
 	if self.force_eligibility:

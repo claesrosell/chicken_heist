@@ -30,6 +30,12 @@ _data = {
 &"start": SubResource("Animation_rus8k")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
+size = Vector2(745.8949, 24.31134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcfvj"]
+size = Vector2(192, 90.71979)
+
 [node name="Level1" type="Node2D" unique_id=1343519134]
 script = ExtResource("1_5xbjy")
 
@@ -61,3 +67,22 @@ libraries/ = SubResource("AnimationLibrary_5xbjy")
 
 [node name="HenSpawner" parent="." unique_id=1009473354 instance=ExtResource("6_fcfvj")]
 position = Vector2(-680, -293)
+
+[node name="StartLevelArea2D" type="Area2D" parent="." unique_id=1513336068]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartLevelArea2D" unique_id=2012978270]
+position = Vector2(-634.7877, 222.3411)
+rotation = 0.67815524
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="EndLevelArea2D" type="Area2D" parent="." unique_id=2068191800]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea2D" unique_id=1355428879]
+position = Vector2(-915, 449)
+rotation = 0.7201281
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_fcfvj")
+
+[connection signal="body_entered" from="StartLevelArea2D" to="." method="_on_start_level_area_2d_body_entered"]

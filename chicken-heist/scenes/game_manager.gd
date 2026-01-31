@@ -15,24 +15,36 @@ var rocky_controls:RockyControls
 
 var latest_rank_achieved : int = -1
 
+var timer_started := false
+
 func _ready() -> void:
 	self.foxy_controls = FoxyControls.new("p1")
 	self.rocky_controls = RockyControls.new("p2")
+
+func reset() -> void :
+	# Global resets
+	score = 0
+	time_left = 90 * 1000	# Set this value to the length
+	time_up_fired = false
+	timer_started = false
 
 func modify_score(points: int) -> void:
 	self.score = self.score + points
 	self.score_updated.emit(score)
 
 func modify_time(time_delta: int) -> void:
-	self.time_left = time_left + time_delta
-	if self.time_left <= 0:
-		self.time_left = 0
-		if !self.time_up_fired:
-			self.time_up_fired = true
-			self.time_is_up.emit()
-			
+	if timer_started:
+		self.time_left = time_left + time_delta
+		if self.time_left <= 0:
+			self.time_left = 0
+			if !self.time_up_fired:
+				self.time_up_fired = true
+				self.time_is_up.emit()
 
 	self.time_left_updated.emit(self.time_left)
+
+func start_timer():
+	timer_started = true
 
 func get_current_score() -> int:
 	return self.score

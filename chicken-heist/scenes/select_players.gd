@@ -98,10 +98,7 @@ func check_start() -> void:
 			GameManager.foxy_controls.set_player("p2")
 			GameManager.rocky_controls.set_player("p1")
 
-		# Global resets
-		GameManager.score = 0
-		GameManager.time_left = 90 * 1000	# Set this value to the length
-		GameManager.time_up_fired = false
+		GameManager.reset()
 
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
