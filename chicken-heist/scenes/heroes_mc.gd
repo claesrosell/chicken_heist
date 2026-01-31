@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var steering_wheel: Sprite2D = $SteeringWheel
+@onready var foxy_head: Sprite2D = $Fox/FoxyHead
 
 # --- CAR SETUP ---
 var wheel_base := 65      # Distance from front to rear wheel
@@ -53,6 +54,7 @@ func get_input() -> void:
 	var turn = Input.get_axis(GameManager.foxy_controls.mc_left, GameManager.foxy_controls.mc_right)
 	steer_direction = turn * deg_to_rad(steering_angle)
 	steering_wheel.rotation = turn * 0.6  + PI / 2
+	foxy_head.rotation =  turn * 0.6 # + PI / 2
 
 	# ACCELERATION
 	# get_action_strength returns 0.0 to 1.0 for analog triggers
