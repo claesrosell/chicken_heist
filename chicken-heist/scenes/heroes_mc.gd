@@ -50,18 +50,18 @@ func _physics_process(delta: float) -> void:
 func get_input() -> void:
 	# STEERING
 	# Returns a value between -1.0 and 1.0 (Analog stick friendly)
-	var turn = Input.get_axis("mc_left", "mc_right")
+	var turn = Input.get_axis(Game.foxy_controls.mc_left, Game.foxy_controls.mc_right)
 	steer_direction = turn * deg_to_rad(steering_angle)
 	steering_wheel.rotation = turn * 0.6  + PI / 2
 
 	# ACCELERATION
 	# get_action_strength returns 0.0 to 1.0 for analog triggers
-	var gas_pressure = Input.get_action_strength("mc_accelerate")
+	var gas_pressure = Input.get_action_strength(Game.foxy_controls.mc_accelerate)
 	if gas_pressure > 0:
 		acceleration = transform.x * engine_power * gas_pressure
 
 	# BRAKING (Reverse/Regular Brake)
-	var brake_pressure = Input.get_action_strength("mc_brake")
+	var brake_pressure = Input.get_action_strength(Game.foxy_controls.mc_brake)
 	if brake_pressure > 0:
 		acceleration = transform.x * braking * brake_pressure
 
@@ -89,7 +89,7 @@ func calculate_steering(delta: float) -> void:
 		current_traction = traction_fast
 
 	# 2. Handbrake Override
-	if Input.is_action_pressed("mc_handbreak"):
+	if Input.is_action_pressed(Game.foxy_controls.mc_handbrake):
 		current_traction = drift_traction
 		# Artificial rotation boost (Scandinavian Flick helper)
 		# This helps "throw" the car into a slide
@@ -120,7 +120,7 @@ func check_skid_marks() -> void:
 	var dot = heading.dot(velocity.normalized())
 
 	# Condition A: Handbrake held
-	if Input.is_action_pressed("mc_handbreak") and velocity.length() > 50:
+	if Input.is_action_pressed(Game.foxy_controls.mc_handbrake) and velocity.length() > 50:
 		is_drifting = true
 	# Condition B: Natural slide (sharp turn at high speed)
 	elif velocity.length() > 100 and abs(dot) < 0.95:
