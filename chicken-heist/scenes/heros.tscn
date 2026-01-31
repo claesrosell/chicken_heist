@@ -23,6 +23,9 @@ radius = 68.33886
 radius = 68.0
 height = 136.0
 
+[sub_resource type="Animation" id="Animation_vjtpe"]
+resource_name = "HonkTheHorn"
+
 [sub_resource type="Animation" id="Animation_tyrc1"]
 length = 0.001
 tracks/0/type = "value"
@@ -109,6 +112,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv8w7"]
 _data = {
+&"HonkTheHorn": SubResource("Animation_vjtpe"),
 &"RESET": SubResource("Animation_tyrc1"),
 &"SpinLasso": SubResource("Animation_uv8w7"),
 &"WaveTail": SubResource("Animation_goik3")
