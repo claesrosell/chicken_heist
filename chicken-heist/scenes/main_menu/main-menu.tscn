@@ -365,5 +365,11 @@ theme_override_font_sizes/font_size = 50
 text = "EXIT
 "
 
+[node name="SubMenu" type="Control" parent="CanvasLayer" unique_id=1428383692]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=767461404]
 libraries/ = SubResource("AnimationLibrary_6xcjq")

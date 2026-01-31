@@ -1,6 +1,6 @@
 extends Pickable
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: Sprite2D = $ChickenBody
 @onready var area_2d_2: Area2D = $Area2D2
 
 @export var walking_area_size : float = 150
@@ -20,7 +20,7 @@ var idle_time: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	GameManager.horn_pressed.connect(_on_horn_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -93,6 +93,8 @@ func _set_state(new_state : HenState):
 			var target_x = randf_range( 100, screen_size.x - 100)
 			var target_y = randf_range(100, screen_size.y - 100)
 			movement_vector =  (Vector2(target_x, target_y) - self.global_position).normalized() * running_speed
+			animation_player.play("running")
+			animation_player.queue("running_2")
 
 		current_state = new_state
 
@@ -101,9 +103,10 @@ func get_points() -> int:
 
 func picked() -> void:
 	area_2d_2.monitorable = false
-	sprite_2d.visible = false
 	animation_player.play("picked")
 
+func _on_horn_pressed() -> void:
+	_set_state(HenState.Running)
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	_set_state(HenState.Running)

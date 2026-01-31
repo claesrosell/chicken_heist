@@ -23,9 +23,10 @@ script = ExtResource("1_bn67b")
 [node name="Control" type="Control" parent="." unique_id=97299414]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -1.0
-offset_right = 40.0
-offset_bottom = 39.0
+offset_left = 549.0
+offset_top = 314.0
+offset_right = 2465.0
+offset_bottom = 1396.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=2117021157]
 position = Vector2(429, 191)

@@ -2,6 +2,7 @@ extends Node2D
 
 var aim_vector : Vector2
 @onready var aim: Node2D = $Aim
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 
 var shot_to := Vector2.ZERO
 
@@ -49,6 +50,10 @@ func _process(delta: float) -> void:
 		if current_pickable != null:
 			GameManager.modify_score(current_pickable.get_points())
 			current_pickable.picked()
+
+	if Input.is_action_just_pressed(GameManager.rocky_controls.rocky_horn):
+		audio_stream_player_2d.play()
+		GameManager.horn_pressed.emit()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 

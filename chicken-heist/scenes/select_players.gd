@@ -47,34 +47,34 @@ func change_selection(player_id: int) -> void:
 		# P1 can move as long as they aren't ready
 		p1_choice = Character.ROCKY if p1_choice == Character.FOXY else Character.FOXY
 	else:
-		# P2 can only move if they aren't ready AND if they don't land 
+		# P2 can only move if they aren't ready AND if they don't land
 		# on a character P1 has already locked
 		var new_choice = Character.ROCKY if p2_choice == Character.FOXY else Character.FOXY
-		
+
 		if p1_ready and new_choice == p1_choice:
 			print("Character is locked by Player 1")
 		else:
 			p2_choice = new_choice
-	
+
 	update_visuals()
 
 func lock_in(player_id: int) -> void:
 	if player_id == 1:
 		# P1 can lock in freely
 		p1_ready = true
-		# Optional: If P1 locks onto P2's current hover, 
+		# Optional: If P1 locks onto P2's current hover,
 		# push P2 to the other character automatically
 		if p1_choice == p2_choice and not p2_ready:
 			p2_choice = Character.ROCKY if p1_choice == Character.FOXY else Character.FOXY
-			
+
 	else:
 		# P2 can only lock in if their choice is different from P1's LOCKED choice
 		if p1_ready and p2_choice == p1_choice:
 			print("Cannot select: Player 1 already locked this character!")
 			return # Block the lock-in
-		
+
 		p2_ready = true
-	
+
 	update_visuals()
 	check_start()
 
@@ -88,7 +88,7 @@ func cancel_ready(player_id: int) -> void:
 func check_start() -> void:
 	if p1_ready and p2_ready:
 		print(">>> STARTING GAME <<<")
-		
+
 		# Determine who controls which character based on their choice
 		# If P1 chose FOXY, they are "p1" for Foxy. Otherwise, P2 is "p1" for Foxy.
 		if p1_choice == Character.FOXY:
@@ -120,6 +120,6 @@ func update_visuals() -> void:
 
 	# 3. Update Player 2 Visuals
 	var p2_idx = int(p2_choice)
-		
+
 	p2_indicators[p2_idx].visible = true
 	p2_indicators[p2_idx].modulate = ready_color if p2_ready else highlight_color

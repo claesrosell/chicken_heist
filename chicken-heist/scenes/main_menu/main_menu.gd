@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var control: Control = $CanvasLayer/Control
+@onready var sub_menu: Control = $CanvasLayer/SubMenu
 
 var selected_index := 0
 var selected_label : Label

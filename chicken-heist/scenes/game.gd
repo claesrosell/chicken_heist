@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 
 func _on_game_over() -> void:
 	print("Time is up! Going to Name Entry...")
-	if made_it_out:	
+	if made_it_out:
 		get_tree().change_scene_to_file("res://scenes/high_score/great_score.tscn")

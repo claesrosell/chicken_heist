@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctoj2fdcile87" path="res://art/Motorcycle.png" id="3_h5dhg"]
 [ext_resource type="Texture2D" uid="uid://brtn7qbjk1ysc" path="res://art/lasso-aim.png" id="3_r8ehe"]
 [ext_resource type="Texture2D" uid="uid://bbi5dt6wjh5cb" path="res://art/Sidecar.png" id="5_x2u3k"]
+[ext_resource type="AudioStream" uid="uid://cxhgtydhj865s" path="res://sound/old-car-horn.mp3" id="7_h5dhg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8ehe"]
 radius = 68.33886
@@ -63,6 +64,9 @@ texture = ExtResource("3_r8ehe")
 position = Vector2(45, 34)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_nemsi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1504325912]
+stream = ExtResource("7_h5dhg")
 
 [connection signal="area_entered" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_exited"]

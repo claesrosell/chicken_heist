@@ -3,6 +3,7 @@ extends Node
 signal score_updated(points:int)
 signal time_left_updated(time_left:int)
 signal time_is_up()
+signal horn_pressed()
 
 var score := 0
 var time_left := 10 * 1000		# in millis
