@@ -11,8 +11,8 @@
 radius = 68.33886
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nemsi"]
-radius = 99.0
-height = 258.0
+radius = 68.0
+height = 136.0
 
 [node name="Heros" type="Node2D" unique_id=725536863]
 
@@ -23,14 +23,16 @@ floor_block_on_wall = false
 script = ExtResource("1_pqwd8")
 
 [node name="SteeringWheel" type="Sprite2D" parent="CharacterBody2D" unique_id=662660253]
-position = Vector2(100, -19)
+position = Vector2(77.30203, 11.458)
 rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4jf0f")
-offset = Vector2(56.87451, 47.354916)
+offset = Vector2(53.95851, 41.95898)
 
 [node name="Fox" type="Sprite2D" parent="CharacterBody2D" unique_id=1368770807]
 position = Vector2(56, 38)
 rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_h5dhg")
 
 [node name="Raccon" type="Node2D" parent="CharacterBody2D" unique_id=1911921274]
@@ -39,8 +41,9 @@ script = ExtResource("2_ul4o7")
 
 [node name="RacconSprite" type="Sprite2D" parent="CharacterBody2D/Raccon" unique_id=2010162085]
 z_index = -10
-position = Vector2(-4, 44)
+position = Vector2(-22, 40)
 rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_x2u3k")
 
 [node name="Aim" type="Node2D" parent="CharacterBody2D/Raccon" unique_id=2057916222]
@@ -58,7 +61,7 @@ shape = SubResource("CircleShape2D_r8ehe")
 texture = ExtResource("3_r8ehe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=427005037]
-position = Vector2(31, 34)
+position = Vector2(45, 34)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_nemsi")
 

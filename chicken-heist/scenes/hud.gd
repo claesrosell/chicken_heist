@@ -23,18 +23,18 @@ func format_time(time_in_ms: int) -> String:
 	var minutes = total_seconds / 60
 	var seconds = total_seconds % 60
 	var centiseconds = (time_in_ms % 1000) / 10
-	
+
 	var time_string = ""
-	
+
 	# 1. Only show minutes if we actually have them (>= 60 seconds)
 	if minutes > 0:
 		time_string += "%02d:" % minutes
-	
+
 	# 2. Always show seconds (padded with 0, e.g., "05" or "12")
 	time_string += "%02d" % seconds
-	
+
 	# 3. Only show centiseconds if time is less than 30 seconds
 	if time_in_ms < 30 * 1000:
 		time_string += ".%02d" % centiseconds
-		
+
 	return time_string

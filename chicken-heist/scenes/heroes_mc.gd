@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var steering_wheel: Sprite2D = $SteeringWheel
 
 # --- CAR SETUP ---
 var wheel_base := 65      # Distance from front to rear wheel
@@ -51,6 +52,7 @@ func get_input() -> void:
 	# Returns a value between -1.0 and 1.0 (Analog stick friendly)
 	var turn = Input.get_axis("mc_left", "mc_right")
 	steer_direction = turn * deg_to_rad(steering_angle)
+	steering_wheel.rotation = turn * 0.6  + PI / 2
 
 	# ACCELERATION
 	# get_action_strength returns 0.0 to 1.0 for analog triggers
