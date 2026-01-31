@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var steering_wheel: Sprite2D = $SteeringWheel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # --- CAR SETUP ---
 var wheel_base := 65      # Distance from front to rear wheel
@@ -59,6 +60,8 @@ func get_input() -> void:
 	var gas_pressure = Input.get_action_strength(GameManager.foxy_controls.mc_accelerate)
 	if gas_pressure > 0:
 		acceleration = transform.x * engine_power * gas_pressure
+		animation_player.play("WaveTail")
+
 
 	# BRAKING (Reverse/Regular Brake)
 	var brake_pressure = Input.get_action_strength(GameManager.foxy_controls.mc_brake)
