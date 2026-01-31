@@ -14,7 +14,7 @@ func open1():
 	animation_player.play("open")
 
 func open2():
-	animation_player.play("open2")
+	animation_player.play("open_2")
 
 func close():
 	animation_player.play("from_open_to_closed")

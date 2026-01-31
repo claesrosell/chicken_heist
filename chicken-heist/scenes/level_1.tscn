@@ -78,6 +78,8 @@ rotation = 0.67815524
 shape = SubResource("RectangleShape2D_pa8r4")
 
 [node name="EndLevelArea2D" type="Area2D" parent="." unique_id=2068191800]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea2D" unique_id=1355428879]
 position = Vector2(-915, 449)
@@ -86,3 +88,4 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_fcfvj")
 
 [connection signal="body_entered" from="StartLevelArea2D" to="." method="_on_start_level_area_2d_body_entered"]
+[connection signal="body_entered" from="EndLevelArea2D" to="." method="_on_end_level_area_2d_body_entered"]

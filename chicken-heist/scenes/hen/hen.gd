@@ -6,7 +6,7 @@ class_name Hen
 @onready var area_2d_2: Area2D = $Area2D2
 
 @export var walking_area_size : float = 150
-@export var walking_speed : float = 20
+@export var walking_speed : float = 40
 @export var running_speed : float = 500
 @export var running_area_size : float = 500
 

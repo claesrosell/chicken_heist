@@ -8,7 +8,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.play("start")
-
+	GameManager.time_is_short.connect(time_is_short)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,6 +16,15 @@ func _process(delta: float) -> void:
 
 
 func _on_start_level_area_2d_body_entered(body: Node2D) -> void:
-	if !GameManager.timer_started:
+	if !GameManager.level_is_started:
 		gate.close()
-		GameManager.start_timer()
+		GameManager.start_level()
+
+
+func _on_end_level_area_2d_body_entered(body: Node2D) -> void:
+	if GameManager.level_is_started:
+		gate.close()
+		GameManager.stop_level()
+
+func time_is_short() -> void:
+	gate.open2()
