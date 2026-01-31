@@ -24,6 +24,9 @@ func _physics_process(_delta: float) -> void:
 		if index == 0:
 			print("play")
 			animation_player.play("main_to_none")
+			# Wait for animation, then switch scene
+			await animation_player.animation_finished
+			get_tree().change_scene_to_file("res://scenes/select_players.tscn")
 
 		elif index == 1:
 			print("how to play")
