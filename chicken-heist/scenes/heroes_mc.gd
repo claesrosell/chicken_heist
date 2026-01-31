@@ -26,10 +26,9 @@ var handbrake_drag := 5.0  # Deceleration when drifting (prevents infinite slide
 var steer_direction := 0.0
 var acceleration := Vector2.ZERO
 
-# --- SKID MARKS SETUP ---
-# Adjust these to match your car sprite's tire positions
-var tire_offset_y := 30.0  # Distance from center to side (Tire width)
-var tire_offset_x := -35.0 # Distance from center to rear axle
+# References to the visual skid mark markers in the scene
+@onready var skid_origin_left: Node2D = $SkidOriginLeft
+@onready var skid_origin_right: Node2D = $SkidOriginRight
 
 var skid_width := 10.0
 var skid_color := Color(0.1, 0.1, 0.1, 0.4) # Dark gray, semi-transparent
@@ -177,16 +176,14 @@ func create_skid_line() -> Line2D:
 	return line
 
 func add_skid_point() -> void:
-	var offset_l = Vector2(tire_offset_x, -tire_offset_y).rotated(rotation)
-	var offset_r = Vector2(tire_offset_x, tire_offset_y).rotated(rotation)
+	# Fetch the skid mark orgins curren position
+	var global_pos_l = skid_origin_left.global_position
+	var global_pos_r = skid_origin_right.global_position
 
 	# Convert Global Position -> Local Position relative to the Line2D's parent
 	var parent_node = get_parent() # This is the "Heros" node
-	var local_pos_l = parent_node.to_local(global_position + offset_l)
-	var local_pos_r = parent_node.to_local(global_position + offset_r)
-
-	skid_left.add_point(local_pos_l)
-	skid_right.add_point(local_pos_r)
+	skid_left.add_point(parent_node.to_local(global_pos_l))
+	skid_right.add_point(parent_node.to_local(global_pos_r))
 
 func fade_out_skid(line: Line2D) -> void:
 	# Create a tween to fade alpha to 0 over 5 seconds, then delete

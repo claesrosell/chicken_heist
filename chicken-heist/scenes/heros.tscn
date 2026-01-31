@@ -212,5 +212,11 @@ stream = ExtResource("7_h5dhg")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=169501627]
 libraries/ = SubResource("AnimationLibrary_uv8w7")
 
+[node name="SkidOriginLeft" type="Marker2D" parent="." unique_id=823461920]
+position = Vector2(6, 10)
+
+[node name="SkidOriginRight" type="Marker2D" parent="." unique_id=520609507]
+position = Vector2(24, 93)
+
 [connection signal="area_entered" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_exited"]
