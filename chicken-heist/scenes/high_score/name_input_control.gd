@@ -4,11 +4,11 @@ signal name_submitted(player_id:String, player_name: String)
 
 # Configurable by instance
 @export var player_id := "player"
-@export var up_action := "ui_up"
-@export var down_action := "ui_down"
-@export var right_action := "ui_right"
-@export var left_action := "ui_left"
-@export var accept_action := "ui_accept"
+var up_action := "ui_up"
+var down_action := "ui_down"
+var left_action := "ui_left"
+var right_action := "ui_right"
+var accept_action := "ui_accept"
 
 # The available characters
 const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .!?"
@@ -20,6 +20,16 @@ var max_slots := 3
 
 func _ready() -> void:
 	update_visuals()
+
+func set_actions(up_action:String, down_action:String, left_action:String, right_action:String, accept_action:String) -> void:
+	self.up_action = up_action
+	self.down_action = down_action
+	self.left_action = left_action
+	self.right_action = right_action
+	self.accept_action = accept_action
+
+func test_method(test:String) -> void:
+	print("Test: %s" % test )
 
 func _input(event: InputEvent) -> void:
 	# We use 'just_pressed' so holding the stick doesn't spin the letters too fast
