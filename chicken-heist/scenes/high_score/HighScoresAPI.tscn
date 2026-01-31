@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bi0f55lc440oy"]
+
+[ext_resource type="Script" uid="uid://cbdwbroksw45c" path="res://scenes/high_score/high_scores_api.gd" id="1_mc58u"]
+
+[node name="HighScoresApi" type="Node" unique_id=973043029]
+script = ExtResource("1_mc58u")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1868601632]
