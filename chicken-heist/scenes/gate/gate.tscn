@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://cjtqskutwfbip"]
+
+[ext_resource type="Script" uid="uid://b8jqb3efnqp1b" path="res://scenes/gate/gate.gd" id="1_r6r88"]
+[ext_resource type="Texture2D" uid="uid://cgev0i01fbyp3" path="res://art/Gate.png" id="2_316ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_316ya"]
+size = Vector2(192.6929, 43.738846)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pidu"]
+size = Vector2(192.6929, 43.738846)
+
+[sub_resource type="Animation" id="Animation_r6r88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GateLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GateRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.159046]
+}
+
+[sub_resource type="Animation" id="Animation_7pidu"]
+resource_name = "closed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GateLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GateRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.159046]
+}
+
+[sub_resource type="Animation" id="Animation_w32ao"]
+resource_name = "open"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GateLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.3962634015954636]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GateRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001387779, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.159046, -1.701696]
+}
+
+[sub_resource type="Animation" id="Animation_316ya"]
+resource_name = "open_2"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GateLeft:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.3962634015954636]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GateRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001387779, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.159046, -4.553564018453206]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ql2p"]
+_data = {
+&"RESET": SubResource("Animation_r6r88"),
+&"closed": SubResource("Animation_7pidu"),
+&"open": SubResource("Animation_w32ao"),
+&"open_2": SubResource("Animation_316ya")
+}
+
+[node name="Gate" type="Node2D" unique_id=1856449277]
+script = ExtResource("1_r6r88")
+
+[node name="GateLeft" type="Node2D" parent="." unique_id=311287916]
+
+[node name="SBGate1" type="StaticBody2D" parent="GateLeft" unique_id=1204486726]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateLeft/SBGate1" unique_id=1843206140]
+position = Vector2(97, 0)
+shape = SubResource("RectangleShape2D_316ya")
+
+[node name="Gate1" type="Sprite2D" parent="GateLeft" unique_id=169958516]
+position = Vector2(90, -3)
+rotation = 3.1415927
+texture = ExtResource("2_316ya")
+
+[node name="GateRight" type="Node2D" parent="." unique_id=1581671025]
+position = Vector2(376, -0.9999994)
+rotation = -3.159046
+
+[node name="SBGate2" type="StaticBody2D" parent="GateRight" unique_id=1688936730]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateRight/SBGate2" unique_id=1550393798]
+position = Vector2(86.056725, -2.4984841)
+shape = SubResource("RectangleShape2D_7pidu")
+
+[node name="Gate2" type="Sprite2D" parent="GateRight" unique_id=1992570729]
+position = Vector2(87.07401, -3.4808788)
+rotation = 3.1415927
+texture = ExtResource("2_316ya")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=482850856]
+libraries/ = SubResource("AnimationLibrary_4ql2p")
