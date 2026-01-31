@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhgjwqgad6jyt" path="res://scenes/select_players.gd" id="1_bn67b"]
 [ext_resource type="Texture2D" uid="uid://b36t8mhxypkj" path="res://art/insert_coin.png" id="2_u4xom"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_fb5wn"]
+[ext_resource type="LabelSettings" uid="uid://bx25fnbgb8rxt" path="res://scenes/high_score/letter_label_settings.tres" id="4_u4xom"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jnqgf"]
 font = ExtResource("3_fb5wn")
@@ -22,8 +23,9 @@ script = ExtResource("1_bn67b")
 [node name="Control" type="Control" parent="." unique_id=97299414]
 layout_mode = 3
 anchors_preset = 0
+offset_top = -1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 39.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=2117021157]
 position = Vector2(429, 191)
@@ -38,22 +40,62 @@ offset_bottom = 111.0
 text = "Press \"A\" to Start"
 label_settings = SubResource("LabelSettings_jnqgf")
 
-[node name="Player1Label" type="Label" parent="Control" unique_id=622849841]
+[node name="FoxyPlayerLabel" type="Label" parent="Control" unique_id=622849841]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 259.0
 offset_top = 163.0
 offset_right = 428.0
 offset_bottom = 224.0
-text = "Player 1"
+text = "Foxy"
 label_settings = SubResource("LabelSettings_3hkqe")
 
-[node name="Player2Label" type="Label" parent="Control" unique_id=1295406621]
+[node name="RockyPlayerLabel" type="Label" parent="Control" unique_id=1295406621]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 258.0
 offset_top = 221.0
 offset_right = 438.0
 offset_bottom = 282.0
-text = "Player 2"
+text = "Rocky"
 label_settings = SubResource("LabelSettings_3hkqe")
+
+[node name="P1FoxyLabel" type="Label" parent="Control" unique_id=192649475]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 197.0
+offset_top = 171.0
+offset_right = 220.0
+offset_bottom = 244.0
+text = "*"
+label_settings = ExtResource("4_u4xom")
+
+[node name="P2FoxyLabel" type="Label" parent="Control" unique_id=1491531127]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 223.0
+offset_top = 171.0
+offset_right = 250.0
+offset_bottom = 244.0
+text = "*"
+label_settings = ExtResource("4_u4xom")
+
+[node name="P1RockyLabel" type="Label" parent="Control" unique_id=624750288]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 196.0
+offset_top = 228.0
+offset_right = 219.0
+offset_bottom = 301.0
+text = "*"
+label_settings = ExtResource("4_u4xom")
+
+[node name="P2RockyLabel" type="Label" parent="Control" unique_id=1344165007]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 222.0
+offset_top = 228.0
+offset_right = 249.0
+offset_bottom = 301.0
+text = "*"
+label_settings = ExtResource("4_u4xom")

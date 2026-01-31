@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="chicken_heist"
-run/main_scene="uid://c2cwesasr3285"
+run/main_scene="uid://cvyfrbb523oyg"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Game="*uid://fek0gxf6pxmb"
+GameManager="*uid://fek0gxf6pxmb"
 
 [display]
 
@@ -135,6 +135,16 @@ p2_r2={
 p2_l2={
 "deadzone": 0.2,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":4,"axis_value":1.0,"script":null)
+]
+}
+p2_button_a={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+p2_button_b={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 

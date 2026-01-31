@@ -15,6 +15,9 @@ var foxy_accept: String
 var foxy_cancel: String
 
 func _init(prefix: String = "p1") -> void:
+	set_player(prefix)
+
+func set_player(prefix:String) -> void:
 	mc_left = prefix + "_ls_left"
 	mc_right = prefix + "_ls_right"
 	mc_accelerate = prefix + "_r2"

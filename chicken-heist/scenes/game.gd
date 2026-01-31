@@ -1,30 +1,15 @@
-extends Node
+extends Node2D
 
-signal score_updated(points:int)
-signal time_left_updated(time_left:int)
-signal time_is_up()
-
-var score := 0
-var time_left := 10 * 1000		# in millis
-
-var time_up_fired := false
-
-var foxy_controls:FoxyControls
-var rocky_controls:RockyControls
+var made_it_out := true		# Only for debugging, we shoud set this depending on if the players actually was able to get out
 
 func _ready() -> void:
-	self.foxy_controls = FoxyControls.new("p1")
-	self.rocky_controls = RockyControls.new("p2")
+	GameManager.time_is_up.connect(_on_game_over)
+	pass # Replace with function body.
 
-func modify_score(points: int) -> void:
-	self.score = self.score + points
-	self.score_updated.emit(score)
+func _process(delta: float) -> void:
+	pass
 
-func modify_time(time_delta: int) -> void:
-	self.time_left = time_left + time_delta
-	if self.time_left <= 0:
-		self.time_left = 0
-		if !self.time_up_fired:
-			self.time_is_up.emit()
-
-	self.time_left_updated.emit(self.time_left)
+func _on_game_over() -> void:
+	print("Time is up! Going to Name Entry...")
+	if made_it_out:	
+		get_tree().change_scene_to_file("res://scenes/high_score/great_score.tscn")

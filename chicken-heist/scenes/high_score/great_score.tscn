@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://buygr1ou6f42p"]
 
+[ext_resource type="Script" uid="uid://d0uvgxsnvl65r" path="res://scenes/high_score/great_score.gd" id="1_6em8q"]
 [ext_resource type="Texture2D" uid="uid://beshlcmptumn" path="res://scenes/high_score/high_score.png" id="1_xrwdm"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="2_8y2ui"]
 [ext_resource type="PackedScene" uid="uid://cjagoq00m4k0a" path="res://scenes/high_score/NameInputControl.tscn" id="3_8y2ui"]
@@ -17,6 +18,7 @@ font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
 outline_size = 10
 
 [node name="GreatScore" type="Node2D" unique_id=1384812620]
+script = ExtResource("1_6em8q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=747976025]
 position = Vector2(430, 335)
@@ -47,13 +49,17 @@ text = "Foxy"
 label_settings = SubResource("LabelSettings_kfx0r")
 
 [node name="RockyInput" parent="." unique_id=437404034 instance=ExtResource("3_8y2ui")]
+unique_name_in_owner = true
 offset_left = 181.0
 offset_top = 280.0
 offset_right = 181.0
 offset_bottom = 280.0
+player_id = "rocky"
 
 [node name="FoxyInput" parent="." unique_id=1736054244 instance=ExtResource("3_8y2ui")]
+unique_name_in_owner = true
 offset_left = 476.0
 offset_top = 280.0
 offset_right = 476.0
 offset_bottom = 280.0
+player_id = "foxy"

@@ -6,4 +6,4 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _time_callback() -> void:
-	Game.modify_time(-100)
+	GameManager.modify_time(-100)
