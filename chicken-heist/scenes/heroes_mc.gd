@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var foxy_head: Sprite2D = $Fox/FoxyHead
 
 # --- CAR SETUP ---
-var wheel_base := 65      # Distance from front to rear wheel
+var wheel_base := 95      # Distance from front to rear wheel
 var steering_angle := 25  # Max turn angle (in degrees)
 
 # --- PHYSICS ---
