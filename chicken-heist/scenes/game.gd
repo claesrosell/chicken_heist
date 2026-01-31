@@ -9,6 +9,13 @@ var time_left := 10 * 1000		# in millis
 
 var time_up_fired := false
 
+var foxy_controls:FoxyControls
+var rocky_controls:RockyControls
+
+func _ready() -> void:
+	self.foxy_controls = FoxyControls.new("p1")
+	self.rocky_controls = RockyControls.new("p2")
+
 func modify_score(points: int) -> void:
 	self.score = self.score + points
 	self.score_updated.emit(score)
