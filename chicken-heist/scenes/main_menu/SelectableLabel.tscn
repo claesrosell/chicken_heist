@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dylcwshkht8e0"]
+
+[ext_resource type="Script" uid="uid://cvu2jeq7lgqba" path="res://scenes/main_menu/selectable_label.gd" id="1_cjfsr"]
+
+[node name="SelectableLabel" type="Control" unique_id=944095267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjfsr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=261623755]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bullet1" type="Label" parent="HBoxContainer" unique_id=189266300]
+unique_name_in_owner = true
+layout_mode = 2
+text = "●"
+
+[node name="Bullet2" type="Label" parent="HBoxContainer" unique_id=354230634]
+unique_name_in_owner = true
+layout_mode = 2
+text = "●"
+
+[node name="Text" type="Label" parent="HBoxContainer" unique_id=232678149]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Dummy text"

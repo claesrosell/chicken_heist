@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://cu6me2cuo4f22"]
+
+[ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="1_g3pxn"]
+
+[resource]
+default_font = ExtResource("1_g3pxn")
+default_font_size = 52
+Label/colors/font_color = Color(0.5764706, 0.1764706, 0.16862746, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/constants/outline_size = 10
+Label/fonts/font = ExtResource("1_g3pxn")

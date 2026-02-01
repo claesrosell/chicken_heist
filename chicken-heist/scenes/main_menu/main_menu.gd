@@ -42,8 +42,8 @@ func _physics_process(_delta: float) -> void:
 
 func _highligh_selected() ->void:
 	for ii in control.get_child_count(false):
-		var label = control.get_child(ii) as Label
+		var label = control.get_child(ii) as SelectableLabel
 		if ii == selected_index:
-			label.set("theme_override_colors/font_color", Color(1, 1, 1))
+			label.is_selected_1 = true
 		else:
-			label.set("theme_override_colors/font_color", Color(0, 0, 0))
+			label.is_selected_1 = false

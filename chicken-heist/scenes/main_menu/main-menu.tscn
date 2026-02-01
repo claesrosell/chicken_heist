@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://fqjmkwr5i7vo" path="res://scenes/main_menu/main_menu.gd" id="1_4wxug"]
 [ext_resource type="Texture2D" uid="uid://dk33johxan6q6" path="res://scenes/main_menu/tile-screen.png" id="1_bk54y"]
 [ext_resource type="Texture2D" uid="uid://chwk5cofvd5tn" path="res://scenes/main_menu/menu-background.png" id="3_bypxa"]
+[ext_resource type="PackedScene" uid="uid://dylcwshkht8e0" path="res://scenes/main_menu/SelectableLabel.tscn" id="4_1ywsq"]
+[ext_resource type="Theme" uid="uid://cu6me2cuo4f22" path="res://scenes/main_menu/main_menu.tres" id="4_pfbqy"]
 
 [sub_resource type="Animation" id="Animation_6xcjq"]
 length = 0.001
@@ -323,47 +325,39 @@ anchors_preset = 0
 offset_top = 10.0
 offset_right = 40.0
 offset_bottom = 50.0
+theme = ExtResource("4_pfbqy")
 
-[node name="Play" type="Label" parent="CanvasLayer/Control" unique_id=900582450]
-layout_mode = 0
+[node name="PlayLabel" parent="CanvasLayer/Control" unique_id=944095267 instance=ExtResource("4_1ywsq")]
+layout_mode = 1
 offset_left = 15.0
 offset_top = 244.0
-offset_right = 294.0
-offset_bottom = 467.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "PLAY
-"
+offset_right = 254.0
+offset_bottom = 427.0
+label_text = "Play"
 
-[node name="HowToPlay" type="Label" parent="CanvasLayer/Control" unique_id=833391790]
-layout_mode = 0
+[node name="HowToPlayLabel" parent="CanvasLayer/Control" unique_id=1738692744 instance=ExtResource("4_1ywsq")]
+layout_mode = 1
 offset_left = 17.0
 offset_top = 300.0
-offset_right = 423.0
-offset_bottom = 523.0
-theme_override_font_sizes/font_size = 50
-text = "HOW TO PLAY
-"
+offset_right = 383.0
+offset_bottom = 483.0
+label_text = "How to Play"
 
-[node name="Credits" type="Label" parent="CanvasLayer/Control" unique_id=532292024]
-layout_mode = 0
+[node name="CreditsLabel" parent="CanvasLayer/Control" unique_id=954019490 instance=ExtResource("4_1ywsq")]
+layout_mode = 1
 offset_left = 15.0
 offset_top = 372.0
-offset_right = 294.0
-offset_bottom = 595.0
-theme_override_font_sizes/font_size = 50
-text = "CREDITS
-"
+offset_right = 254.0
+offset_bottom = 555.0
+label_text = "Credits"
 
-[node name="Exit" type="Label" parent="CanvasLayer/Control" unique_id=402913219]
-layout_mode = 0
-offset_left = 17.0
+[node name="ExitLabel" parent="CanvasLayer/Control" unique_id=568305590 instance=ExtResource("4_1ywsq")]
+layout_mode = 1
+offset_left = 15.0
 offset_top = 514.0
-offset_right = 296.0
-offset_bottom = 737.0
-theme_override_font_sizes/font_size = 50
-text = "EXIT
-"
+offset_right = 254.0
+offset_bottom = 697.0
+label_text = "Exit"
 
 [node name="SubMenu" type="Control" parent="CanvasLayer" unique_id=1428383692]
 layout_mode = 3
