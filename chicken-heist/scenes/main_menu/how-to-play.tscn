@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpe8n5eddgx3w"]
+
+[ext_resource type="Script" uid="uid://c4innxblcf8ys" path="res://scenes/main_menu/how_to_play.gd" id="1_bade8"]
+[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="1_e3glf"]
+[ext_resource type="Texture2D" uid="uid://bt6taobfufuvd" path="res://art/how-to-play.png" id="2_bade8"]
+
+[node name="HowToPlay" type="Node2D" unique_id=333207953]
+script = ExtResource("1_bade8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1556730821]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=839789747]
+modulate = Color(1, 1, 1, 0.5058824)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_e3glf")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2003093881]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_bade8")

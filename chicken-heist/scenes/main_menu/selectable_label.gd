@@ -29,7 +29,7 @@ func _ready() -> void:
 	_update_bullets()
 
 func _update_bullets() -> void:
-	# We use modulate.a (Alpha) to hide/show 
+	# We use modulate.a (Alpha) to hide/show
 	# This ensures the HBoxContainer doesn't shift the text
 	bullet_1.modulate.a = 1.0 if is_selected_1 else 0.0
 	bullet_2.modulate.a = 1.0 if is_selected_2 else 0.0

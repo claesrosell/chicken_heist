@@ -35,7 +35,11 @@ func _physics_process(_delta: float) -> void:
 			get_tree().change_scene_to_file("res://scenes/select_players.tscn")
 
 		elif index == 1:
-			print("how to play")
+			option_accepted = true
+			animation_player.play("main_to_none")
+			await animation_player.animation_finished
+			get_tree().change_scene_to_file("res://scenes/main_menu/how-to-play.tscn")
+
 		elif index == 2:
 			print("credits")
 		elif index == 3:
