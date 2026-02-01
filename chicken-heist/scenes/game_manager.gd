@@ -68,6 +68,7 @@ func stop_level():
 	level_is_exited = true
 	if self.time_left > 0:
 		finished_in_time = true
+		modify_time(-time_left)
 
 func get_current_score() -> int:
 	return self.score

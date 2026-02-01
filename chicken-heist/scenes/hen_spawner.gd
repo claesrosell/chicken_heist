@@ -3,8 +3,8 @@ extends Node2D
 const HEN = preload("uid://bn6h61u5pr2ou")
 @onready var hens: Node2D = $Hens
 
-var time_to_hen : float = 5
-var target_hen_count = 5
+var time_to_hen : float = 4
+var target_hen_count = 8
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
