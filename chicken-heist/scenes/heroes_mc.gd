@@ -72,11 +72,11 @@ func get_input() -> void:
 
 	if started_acceleration:
 		throttle_mc_audio_player.play()
-		gpu_particles_2d.emitting = true
 
 	if gas_pressure > 0:
 		acceleration = transform.x * engine_power * gas_pressure
 		animation_player.play("WaveTail")
+		gpu_particles_2d.emitting = true
 
 	# BRAKING (Reverse/Regular Brake)
 	var brake_pressure = Input.get_action_strength(GameManager.foxy_controls.mc_brake)

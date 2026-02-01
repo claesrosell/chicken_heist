@@ -301,7 +301,6 @@ position = Vector2(-18, -3)
 emitting = false
 amount = 16
 texture = ExtResource("21_s8iyv")
-one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_erexd")
 
