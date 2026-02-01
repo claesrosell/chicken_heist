@@ -6,12 +6,16 @@ extends Node2D
 
 var selected_index := 0
 var selected_label : Label
+var option_accepted = false
 
 func _ready() -> void:
 	_highligh_selected()
+	option_accepted = false
 	animation_player.play("first_to_main")
 
 func _physics_process(_delta: float) -> void:
+	if option_accepted:
+		return
 
 	var index = selected_index
 
@@ -23,6 +27,7 @@ func _physics_process(_delta: float) -> void:
 			index = index + 1
 	if Input.is_action_just_pressed("p1_button_a") or Input.is_action_just_pressed("p2_button_a"):
 		if index == 0:
+			option_accepted = true
 			print("play")
 			animation_player.play("main_to_none")
 			# Wait for animation, then switch scene

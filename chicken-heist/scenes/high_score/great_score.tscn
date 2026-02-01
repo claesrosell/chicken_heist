@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0uvgxsnvl65r" path="res://scenes/high_score/great_score.gd" id="1_6em8q"]
 [ext_resource type="Texture2D" uid="uid://beshlcmptumn" path="res://scenes/high_score/high_score.png" id="1_xrwdm"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="2_8y2ui"]
-[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="2_kfx0r"]
+[ext_resource type="Texture2D" uid="uid://xehxy0dw6cp7" path="res://art/GameBoard.png" id="2_a7f0u"]
 [ext_resource type="PackedScene" uid="uid://cjagoq00m4k0a" path="res://scenes/high_score/NameInputControl.tscn" id="3_8y2ui"]
 [ext_resource type="PackedScene" uid="uid://bi0f55lc440oy" path="res://scenes/high_score/HighScoresAPI.tscn" id="5_kfx0r"]
 
@@ -23,9 +23,10 @@ outline_size = 10
 script = ExtResource("1_6em8q")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1233097185]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_kfx0r")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_a7f0u")
+expand_mode = 1
 
 [node name="GreatScoreRectangle" type="TextureRect" parent="." unique_id=811084735]
 offset_left = 553.0
