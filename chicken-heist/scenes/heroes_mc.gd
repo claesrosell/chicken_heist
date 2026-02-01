@@ -19,7 +19,7 @@ var drag := -0.06         # Air resistance (increases with speed)
 var slip_speed := 400     # Speed where normal traction reduces
 var traction_fast := 2.5  # Grip at high speeds
 var traction_slow := 10.0 # Grip at low speeds
-var drift_traction := 0.05 # Grip when handbraking (Very low = Icy)
+var drift_traction := 0.1 # Grip when handbraking (Very low = Icy)
 var handbrake_drag := 5.0  # Deceleration when drifting (prevents infinite slide)
 
 # --- STATE ---
