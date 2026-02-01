@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dgo0i3wv8joow" path="res://art/Rocky HandR.png" id="11_ocldu"]
 [ext_resource type="Texture2D" uid="uid://crmld0efvy66b" path="res://art/RockyRope.png" id="12_s8iyv"]
 [ext_resource type="Texture2D" uid="uid://durx1703q0mit" path="res://art/RockyLasso.png" id="13_erexd"]
+[ext_resource type="AudioStream" uid="uid://d2d4pp5lkmuo3" path="res://sound/latent_mc_sound.wav" id="16_uv8w7"]
+[ext_resource type="AudioStream" uid="uid://xkiswl1lohw2" path="res://sound/throttle_mc_sound.wav" id="17_vjtpe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8ehe"]
 radius = 68.33886
@@ -221,6 +223,16 @@ position = Vector2(6, 10)
 
 [node name="SkidOriginRight" type="Marker2D" parent="." unique_id=520609507]
 position = Vector2(24, 93)
+
+[node name="LatentMcSound" type="AudioStreamPlayer2D" parent="." unique_id=832930846]
+stream = ExtResource("16_uv8w7")
+autoplay = true
+bus = &"MC"
+
+[node name="ThrottleMcSound" type="AudioStreamPlayer2D" parent="." unique_id=255553989]
+unique_name_in_owner = true
+stream = ExtResource("17_vjtpe")
+bus = &"MC"
 
 [connection signal="area_entered" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_exited"]
