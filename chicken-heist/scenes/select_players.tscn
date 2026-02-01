@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcd7gr412yfx8"]
 
 [ext_resource type="Script" uid="uid://bhgjwqgad6jyt" path="res://scenes/select_players.gd" id="1_bn67b"]
+[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="2_fb5wn"]
 [ext_resource type="Texture2D" uid="uid://b36t8mhxypkj" path="res://art/insert_coin.png" id="2_u4xom"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_fb5wn"]
 [ext_resource type="LabelSettings" uid="uid://bx25fnbgb8rxt" path="res://scenes/high_score/letter_label_settings.tres" id="4_u4xom"]
@@ -19,6 +20,11 @@ outline_size = 10
 
 [node name="SelectsPlayers" type="Node2D" unique_id=239726471]
 script = ExtResource("1_bn67b")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=470646812]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fb5wn")
 
 [node name="Control" type="Control" parent="." unique_id=97299414]
 layout_mode = 3

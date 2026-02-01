@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1i0exafhppoy"]
 
 [ext_resource type="Texture2D" uid="uid://ckcyxbyrycckj" path="res://scenes/game_over/game_over.png" id="1_3j056"]
-[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="1_anb0t"]
 [ext_resource type="Script" uid="uid://bcgikwo5o0dx1" path="res://scenes/game_over/game_over.gd" id="1_vtso4"]
+[ext_resource type="Texture2D" uid="uid://xehxy0dw6cp7" path="res://art/GameBoard.png" id="2_p1tbv"]
 [ext_resource type="Theme" uid="uid://cu6me2cuo4f22" path="res://scenes/main_menu/main_menu.tres" id="2_vtso4"]
 [ext_resource type="PackedScene" uid="uid://bi0f55lc440oy" path="res://scenes/high_score/HighScoresAPI.tscn" id="5_p1tbv"]
 
@@ -10,9 +10,10 @@
 script = ExtResource("1_vtso4")
 
 [node name="BackgroundSplash" type="TextureRect" parent="." unique_id=1123859953]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_anb0t")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_p1tbv")
+expand_mode = 1
 
 [node name="InfoBackdrop" type="TextureRect" parent="." unique_id=165539777]
 offset_left = 553.0

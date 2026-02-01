@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqwaj012rrr6h" path="res://scenes/high_score/high_scores.gd" id="1_c7ggt"]
 [ext_resource type="Texture2D" uid="uid://beshlcmptumn" path="res://scenes/high_score/high_score.png" id="1_iu8t5"]
-[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="2_4h0ki"]
+[ext_resource type="Texture2D" uid="uid://xehxy0dw6cp7" path="res://art/GameBoard.png" id="2_4h0ki"]
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_p8efl"]
 [ext_resource type="PackedScene" uid="uid://bi0f55lc440oy" path="res://scenes/high_score/HighScoresAPI.tscn" id="4_44a4w"]
 
@@ -32,6 +32,7 @@ offset_top = -333.0
 offset_right = 1500.0
 offset_bottom = 747.0
 texture = ExtResource("2_4h0ki")
+expand_mode = 1
 
 [node name="HighscoreBackground" type="Sprite2D" parent="." unique_id=2073975121]
 position = Vector2(502, 243)
