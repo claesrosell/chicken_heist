@@ -4,6 +4,7 @@ class_name Hen
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $ChickenBody
 @onready var area_2d_2: Area2D = $Area2D2
+@onready var score_label: Label = $ScoreLabel
 
 @export var walking_area_size : float = 150
 @export var walking_speed : float = 40
@@ -20,11 +21,21 @@ var idle_time: float = 0.0
 var is_picked = false
 var time_to_death : float = 0
 
+var life_time : float = 0
+var current_points : int = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.horn_pressed.connect(_on_horn_pressed)
 
 func _process(delta: float) -> void:
+
+	life_time += delta
+
+	current_points = int(max((100 - life_time * 9), 10))
+	score_label.text = str(current_points)
+
+	score_label.global_position = self.global_position + Vector2(-25 - score_label.size.x / 2, -60- score_label.size.y / 2)
 
 	if is_picked == true:
 		time_to_death -= delta
@@ -88,7 +99,7 @@ func _set_state(new_state : HenState):
 		current_state = new_state
 
 func get_points() -> int:
-	return 10
+	return current_points
 
 func picked() -> void:
 	area_2d_2.monitorable = false
