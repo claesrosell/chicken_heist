@@ -18,7 +18,7 @@ func _ready() -> void:
 	self.score_header_settings.outline_size = 10            # Size in pixels (Must be > 0 to see it)
 
 	self.score_label_settings = LabelSettings.new()
-	self.score_label_settings.font_size = 32
+	self.score_label_settings.font_size = 30
 	self.score_label_settings.font_color = RESULT_COLOR
 	self.score_label_settings.outline_color = Color.WHITE # The "Outline" color
 	self.score_label_settings.outline_size = 10            # Size in pixels (Must be > 0 to see it)
