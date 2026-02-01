@@ -7,4 +7,5 @@
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=217394151]
 stream = ExtResource("1_dahq1")
 autoplay = true
+bus = &"BackgroundMusicBus"
 parameters/looping = false
