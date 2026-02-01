@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cwi3u3wrmv08l" path="res://art/Unkempt-Bold.ttf" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://ckdieeg1ydj0t" path="res://scenes/hud.gd" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cnmg7kv4dnsnr" path="res://scenes/timer.gd" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://y1btppuu8wmx" path="res://sound/chicken_caught.wav" id="6_p57ef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lbhrr"]
 font = ExtResource("3_lnu2h")
@@ -50,3 +51,7 @@ position = Vector2(960, 533)
 wait_time = 0.1
 autostart = true
 script = ExtResource("5_iywne")
+
+[node name="PointsGainedAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1288440238]
+stream = ExtResource("6_p57ef")
+volume_db = 20.0

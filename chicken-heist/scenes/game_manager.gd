@@ -41,6 +41,9 @@ func reset() -> void :
 func modify_score(points: int) -> void:
 	self.score = self.score + points
 	self.score_updated.emit(score)
+	var points_gained_player := get_tree().root.get_node("Game/PointsGainedAudioPlayer") as AudioStreamPlayer2D
+	if points_gained_player != null and points > 0:
+		points_gained_player.play()
 
 func modify_time(time_delta: int) -> void:
 	if timer_started:
