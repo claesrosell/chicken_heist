@@ -16,13 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://crmld0efvy66b" path="res://art/RockyRope.png" id="12_s8iyv"]
 [ext_resource type="Texture2D" uid="uid://durx1703q0mit" path="res://art/RockyLasso.png" id="13_erexd"]
 [ext_resource type="Texture2D" uid="uid://bdh5lmsgahvkp" path="res://art/PulledChicken.png" id="16_goik3"]
-[ext_resource type="Texture2D" uid="uid://cu4or66wm7ysm" path="res://art/LassoMiss.png" id="17_uv8w7"]
-[ext_resource type="Texture2D" uid="uid://ck5q8ln0weaho" path="res://art/lasso_line.png" id="17_vjtpe"]
 [ext_resource type="AudioStream" uid="uid://d2d4pp5lkmuo3" path="res://sound/latent_mc_sound.wav" id="16_uv8w7"]
+[ext_resource type="Texture2D" uid="uid://ck5q8ln0weaho" path="res://art/lasso_line.png" id="17_ocldu"]
+[ext_resource type="Texture2D" uid="uid://cu4or66wm7ysm" path="res://art/LassoMiss.png" id="17_uv8w7"]
 [ext_resource type="AudioStream" uid="uid://xkiswl1lohw2" path="res://sound/throttle_mc_sound.wav" id="17_vjtpe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8ehe"]
-radius = 36.0
+radius = 25.000011
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nemsi"]
 radius = 68.0
@@ -228,7 +228,7 @@ top_level = true
 texture_repeat = 2
 points = PackedVector2Array(0, 0, 100, 100)
 width = 4.0
-texture = ExtResource("17_vjtpe")
+texture = ExtResource("17_ocldu")
 texture_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427005037]

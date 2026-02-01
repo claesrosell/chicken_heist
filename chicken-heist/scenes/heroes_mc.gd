@@ -65,12 +65,12 @@ func get_input() -> void:
 	# get_action_strength returns 0.0 to 1.0 for analog triggers
 	var gas_pressure = Input.get_action_strength(GameManager.foxy_controls.mc_accelerate)
 
-	# If the player pressed accelerated just now, play Throttle sound	
+	# If the player pressed accelerated just now, play Throttle sound
 	var started_acceleration = gas_pressure > 0 and !self.previous_acceleration_state
 	self.previous_acceleration_state = gas_pressure > 0
 
 	if started_acceleration:
-		throttle_mc_audio_player.play()		
+		throttle_mc_audio_player.play()
 
 	if gas_pressure > 0:
 		acceleration = transform.x * engine_power * gas_pressure

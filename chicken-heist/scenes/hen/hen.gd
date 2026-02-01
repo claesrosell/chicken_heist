@@ -38,10 +38,17 @@ func _process(delta: float) -> void:
 	score_label.global_position = self.global_position + Vector2(-25 - score_label.size.x / 2, -60- score_label.size.y / 2)
 
 	if is_picked == true:
+		sprite_2d.visible = false
+		score_label.visible = false
+
 		time_to_death -= delta
 		if time_to_death <= 0:
 			print("death")
 			queue_free()
+	else:
+		sprite_2d.visible = true
+		score_label.visible = true
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

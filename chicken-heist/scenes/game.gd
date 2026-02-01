@@ -15,13 +15,13 @@ func _on_game_over() -> void:
 
 func fade_bus(bus_name: String, target_linear_vol: float, duration: float):
 	var bus_index = AudioServer.get_bus_index(bus_name)
-	
+
 	# Get current volume
 	var current_db = AudioServer.get_bus_volume_db(bus_index)
 	var current_linear = db_to_linear(current_db)
-	
+
 	var tween = create_tween()
-	
+
 	# Tween the volume
 	tween.tween_method(
 		func(val): AudioServer.set_bus_volume_db(bus_index, linear_to_db(val)),
@@ -29,6 +29,6 @@ func fade_bus(bus_name: String, target_linear_vol: float, duration: float):
 		target_linear_vol,
 		duration
 	)
-	
+
 	# Return the 'finished' signal specifically
 	return tween.finished
