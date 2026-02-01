@@ -25,10 +25,15 @@ var handbrake_drag := 5.0  # Deceleration when drifting (prevents infinite slide
 # --- STATE ---
 var steer_direction := 0.0
 var acceleration := Vector2.ZERO
+var previous_acceleration_state := false
+
 
 # References to the visual skid mark markers in the scene
 @onready var skid_origin_left: Node2D = $SkidOriginLeft
 @onready var skid_origin_right: Node2D = $SkidOriginRight
+
+# Throttle sound audio stream player
+@onready var throttle_mc_audio_player:AudioStreamPlayer2D = %ThrottleMcSound
 
 var skid_width := 10.0
 var skid_color := Color(0.1, 0.1, 0.1, 0.4) # Dark gray, semi-transparent
@@ -59,10 +64,17 @@ func get_input() -> void:
 	# ACCELERATION
 	# get_action_strength returns 0.0 to 1.0 for analog triggers
 	var gas_pressure = Input.get_action_strength(GameManager.foxy_controls.mc_accelerate)
+
+	# If the player pressed accelerated just now, play Throttle sound	
+	var started_acceleration = gas_pressure > 0 and !self.previous_acceleration_state
+	self.previous_acceleration_state = gas_pressure > 0
+
+	if started_acceleration:
+		throttle_mc_audio_player.play()		
+
 	if gas_pressure > 0:
 		acceleration = transform.x * engine_power * gas_pressure
 		animation_player.play("WaveTail")
-
 
 	# BRAKING (Reverse/Regular Brake)
 	var brake_pressure = Input.get_action_strength(GameManager.foxy_controls.mc_brake)
