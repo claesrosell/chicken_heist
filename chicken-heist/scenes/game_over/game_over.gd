@@ -22,7 +22,7 @@ func _ready() -> void:
 	else:
 		self.points_label.text = str(int(current_score))
 
-	if current_score > 0:
+	if current_score > 0 and local_finished_in_time:
 		high_scores_api.eligibility_checked.connect(_on_eligibility_result)
 		high_scores_api.check_eligibility(current_score)
 	else:
