@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bty20bdp1doyg" path="res://art/ChickenWing.png" id="4_3uchb"]
 [ext_resource type="AudioStream" uid="uid://c43nqxfssprc3" path="res://scenes/hen/chicken-430403.mp3" id="5_nvtit"]
 [ext_resource type="AudioStream" uid="uid://7c3itgew53wf" path="res://scenes/hen/OneCluck.wav" id="8_iywax"]
+[ext_resource type="Theme" uid="uid://cu6me2cuo4f22" path="res://scenes/main_menu/main_menu.tres" id="9_3uchb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4bd2"]
 radius = 49.0
@@ -548,6 +549,8 @@ offset_right = 20.0
 offset_bottom = -79.0
 scale = Vector2(2, 2)
 pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("9_3uchb")
+theme_override_font_sizes/font_size = 16
 text = "TEST"
 horizontal_alignment = 1
 
