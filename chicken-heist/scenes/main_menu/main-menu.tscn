@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvyfrbb523oyg"]
 
 [ext_resource type="Script" uid="uid://fqjmkwr5i7vo" path="res://scenes/main_menu/main_menu.gd" id="1_4wxug"]
-[ext_resource type="Texture2D" uid="uid://dk33johxan6q6" path="res://scenes/main_menu/tile-screen.png" id="1_bk54y"]
+[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="2_1ywsq"]
 [ext_resource type="Texture2D" uid="uid://chwk5cofvd5tn" path="res://scenes/main_menu/menu-background.png" id="3_bypxa"]
 [ext_resource type="PackedScene" uid="uid://dylcwshkht8e0" path="res://scenes/main_menu/SelectableLabel.tscn" id="4_1ywsq"]
 [ext_resource type="Theme" uid="uid://cu6me2cuo4f22" path="res://scenes/main_menu/main_menu.tres" id="4_pfbqy"]
@@ -300,7 +300,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_bk54y")
+texture = ExtResource("2_1ywsq")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=813916199]
 offset_left = 158.0
