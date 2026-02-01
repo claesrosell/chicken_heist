@@ -17,12 +17,14 @@ var high_score_eligibility:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+
 	var local_finished_in_time = GameManager.finished_in_time
 
 	if !local_finished_in_time:
 		self.info_label.text = "You were trapped!"
 		self.points_label.text = "0"
+	else:
+		self.points_label.text = str(int(GameManager.get_current_score()))
 
 	if self.online:
 		high_scores_api.eligibility_checked.connect(_on_eligibility_result)
