@@ -5,11 +5,6 @@ extends Node2D
 @onready var points_label:Label = %PointsLabel
 @onready var info_label:Label = %InfoLabel
 
-# Debug stuff
-var online :bool = false
-
-var made_it_out := true		# Only for debugging, we shoud set this depending on if the players actually was able to get out
-
 var force_eligibility :bool = false
 var force_eligibility_to:bool = true
 
@@ -20,17 +15,18 @@ func _ready() -> void:
 
 	var local_finished_in_time = GameManager.finished_in_time
 
+	var current_score = GameManager.get_current_score()
 	if !local_finished_in_time:
 		self.info_label.text = "You were trapped!"
 		self.points_label.text = "0"
 	else:
-		self.points_label.text = str(int(GameManager.get_current_score()))
+		self.points_label.text = str(int(current_score))
 
-	if self.online:
+	if current_score > 0:
 		high_scores_api.eligibility_checked.connect(_on_eligibility_result)
-		high_scores_api.check_eligibility(GameManager.get_current_score())
+		high_scores_api.check_eligibility(current_score)
 	else:
-		_on_eligibility_result(true)
+		_on_eligibility_result(false)
 
 	# create_timer returns a SceneTreeTimer which cleans itself up automatically
 	get_tree().create_timer(7.0).timeout.connect(self._move_to_next_screen)
@@ -51,22 +47,9 @@ func _move_to_next_screen() -> void:
 		# FAILED: Go straight to Leaderboard
 		get_tree().change_scene_to_file("res://scenes/high_score/high_scores.tscn")
 
-
-func _on_game_over() -> void:
-	print("Time is up! Going to Name Entry...")
-	if !made_it_out:
-		print("We should do something here since the players did succed")
-
-	if self.online:
-		high_scores_api.eligibility_checked.connect(_on_eligibility_result)
-		high_scores_api.check_eligibility(GameManager.get_current_score())
-	else:
-		_on_eligibility_result(true)
-
 func _on_eligibility_result(is_eligible: bool) -> void:
 	# Clean up connection so it doesn't fire twice
-	if self.online:
-		high_scores_api.eligibility_checked.disconnect(_on_eligibility_result)
+	high_scores_api.eligibility_checked.disconnect(_on_eligibility_result)
 
 	print("Passed eligibility is: ", is_eligible)
 
