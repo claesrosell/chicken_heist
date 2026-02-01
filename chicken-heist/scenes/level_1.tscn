@@ -7,6 +7,33 @@
 [ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cwnh4h4y8r1lv" path="res://scenes/hen/hen_spawner.tscn" id="6_fcfvj"]
 
+[sub_resource type="Animation" id="Animation_fcfvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-753, 350)]
+}
+
 [sub_resource type="Animation" id="Animation_rus8k"]
 resource_name = "start"
 step = 0.1
@@ -24,10 +51,64 @@ tracks/0/keys = {
 "method": &"open1"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-480, 262)]
+}
+
+[sub_resource type="Animation" id="Animation_pa8r4"]
+resource_name = "zoom_to_level"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-480, 262), Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5xbjy"]
 _data = {
-&"start": SubResource("Animation_rus8k")
+&"RESET": SubResource("Animation_fcfvj"),
+&"start": SubResource("Animation_rus8k"),
+&"zoom_to_level": SubResource("Animation_pa8r4")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
@@ -86,6 +167,10 @@ position = Vector2(-915, 449)
 rotation = 0.7201281
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_fcfvj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1041026574]
+position = Vector2(-753, 350)
+zoom = Vector2(2, 2)
 
 [connection signal="body_entered" from="StartLevelArea2D" to="." method="_on_start_level_area_2d_body_entered"]
 [connection signal="body_entered" from="EndLevelArea2D" to="." method="_on_end_level_area_2d_body_entered"]

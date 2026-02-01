@@ -43,9 +43,6 @@ offset_bottom = 79.0
 text = "Time:"
 label_settings = SubResource("LabelSettings_iywne")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=2050070863]
-position = Vector2(960, 533)
-
 [node name="Timer" type="Timer" parent="." unique_id=76409513]
 wait_time = 0.1
 autostart = true

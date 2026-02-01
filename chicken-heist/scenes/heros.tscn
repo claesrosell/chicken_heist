@@ -24,6 +24,40 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8ehe"]
 radius = 25.000011
 
+[sub_resource type="Animation" id="Animation_ocldu"]
+resource_name = "SpinLasso"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Raccon/RacconSprite/Rocky HandR/RockyRope:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -3.1415927, -6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Raccon/RacconSprite/Rocky HandR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(68.291084, 14.854797), Vector2(76.00001, 26), Vector2(84.00001, 13.999999), Vector2(76.00001, 6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8iyv"]
+_data = {
+&"SpinLasso": SubResource("Animation_ocldu")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nemsi"]
 radius = 68.0
 height = 136.0
@@ -70,35 +104,6 @@ tracks/2/keys = {
 "values": [Vector2(68.291084, 14.854797)]
 }
 
-[sub_resource type="Animation" id="Animation_uv8w7"]
-resource_name = "SpinLasso"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Raccon/RacconSprite/Rocky HandR/RockyRope:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -3.1415927, -6.2831855]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Raccon/RacconSprite/Rocky HandR:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(68.291084, 14.854797), Vector2(76.00001, 26), Vector2(84.00001, 13.999999), Vector2(76.00001, 6)]
-}
-
 [sub_resource type="Animation" id="Animation_goik3"]
 resource_name = "WaveTail"
 length = 0.8
@@ -119,7 +124,6 @@ tracks/0/keys = {
 _data = {
 &"HonkTheHorn": SubResource("Animation_vjtpe"),
 &"RESET": SubResource("Animation_tyrc1"),
-&"SpinLasso": SubResource("Animation_uv8w7"),
 &"WaveTail": SubResource("Animation_goik3")
 }
 
@@ -230,6 +234,10 @@ points = PackedVector2Array(0, 0, 100, 100)
 width = 4.0
 texture = ExtResource("17_ocldu")
 texture_mode = 1
+
+[node name="RockyAnimationPlayer" type="AnimationPlayer" parent="Raccon" unique_id=1345431608]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_s8iyv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427005037]
 visible = false

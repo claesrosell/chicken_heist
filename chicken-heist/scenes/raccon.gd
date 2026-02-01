@@ -9,6 +9,8 @@ var aim_vector : Vector2
 @onready var fetch_sprite_2d: Sprite2D = $FetchSprite2D
 @onready var miss_sprite_2d: Sprite2D = $MissedSprite2D
 @onready var rocky_hand_node: Node2D = $RacconSprite/RockyHandNode
+@onready var rocky_rope: Sprite2D = $"RacconSprite/Rocky HandR/RockyRope"
+@onready var rocky_animation_player: AnimationPlayer = $RockyAnimationPlayer
 
 @export var aim_distance := 300.0
 @export var aim_speed := 500.0
@@ -25,6 +27,7 @@ var current_pickable : Pickable
 
 func _ready() -> void:
 	aim_vector = Vector2(1, 0)
+	rocky_animation_player.play("SpinLasso")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,17 +44,17 @@ func _process(delta: float) -> void:
 		fetch_sprite_2d.visible = true
 		miss_sprite_2d.visible = false
 		lasso_line.visible = true
+		rocky_rope.visible = false
 	elif show_fetch_type == FetchType.Miss:
 		fetch_sprite_2d.visible = false
 		miss_sprite_2d.visible = true
 		lasso_line.visible = true
+		rocky_rope.visible = false
 	else:
 		fetch_sprite_2d.visible = false
 		miss_sprite_2d.visible = false
 		lasso_line.visible = false
-
-
-
+		rocky_rope.visible = true
 
 
 	# Handle aim input and crosshair logic
