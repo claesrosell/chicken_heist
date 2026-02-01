@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b1i0exafhppoy"]
+
+[ext_resource type="Texture2D" uid="uid://ckcyxbyrycckj" path="res://scenes/game_over/game_over.png" id="1_3j056"]
+[ext_resource type="Texture2D" uid="uid://bi0hj0wsbpoep" path="res://art/Splash_Image.png" id="1_anb0t"]
+[ext_resource type="Script" uid="uid://bcgikwo5o0dx1" path="res://scenes/game_over/game_over.gd" id="1_vtso4"]
+[ext_resource type="Theme" uid="uid://cu6me2cuo4f22" path="res://scenes/main_menu/main_menu.tres" id="2_vtso4"]
+[ext_resource type="PackedScene" uid="uid://bi0f55lc440oy" path="res://scenes/high_score/HighScoresAPI.tscn" id="5_p1tbv"]
+
+[node name="GameOver" type="Node2D" unique_id=493610860]
+script = ExtResource("1_vtso4")
+
+[node name="BackgroundSplash" type="TextureRect" parent="." unique_id=1123859953]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_anb0t")
+
+[node name="InfoBackdrop" type="TextureRect" parent="." unique_id=165539777]
+offset_left = 553.0
+offset_top = 220.0
+offset_right = 1411.0
+offset_bottom = 890.0
+theme = ExtResource("2_vtso4")
+texture = ExtResource("1_3j056")
+
+[node name="GameOverLabel" type="Label" parent="InfoBackdrop" unique_id=1982017126]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = -10.0
+offset_top = 142.0
+offset_right = 848.0
+offset_bottom = 242.0
+theme_override_font_sizes/font_size = 60
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="PointsLabel" type="Label" parent="InfoBackdrop" unique_id=310864844]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -9.0
+offset_top = 219.0
+offset_right = 849.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 120
+text = "100"
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="InfoBackdrop" unique_id=1485945656]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = 439.0
+offset_right = 857.0
+offset_bottom = 502.0
+text = "Well Done!"
+horizontal_alignment = 1
+
+[node name="HighScoresApi" parent="." unique_id=973043029 instance=ExtResource("5_p1tbv")]
