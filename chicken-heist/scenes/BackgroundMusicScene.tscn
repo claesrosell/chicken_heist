@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cwgfirx2iucd8"]
+
+[ext_resource type="AudioStream" uid="uid://clfb7dkkbwa5n" path="res://sound/my-banjo-and-me-bluegrass-409664.mp3" id="1_dahq1"]
+
+[node name="BackgroundMusicScene" type="Node" unique_id=1432684730]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=217394151]
+stream = ExtResource("1_dahq1")
+autoplay = true
+parameters/looping = false

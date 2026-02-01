@@ -34,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 		elif index == 2:
 			print("credits")
 		elif index == 3:
+			get_tree().quit()
 			print("exit")
 
 	if index != selected_index:
