@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 
 func _add_header_row() -> void:
 	# Headers must match the GridContainer column count (4)
-	var headers = ["Pos", "Rocky", "Foxy", "Score"]
+	var headers = ["Pos", "Foxy", "Rocky", "Score"]
 	for title in headers:
 		var label = Label.new()
 		label.text = title
