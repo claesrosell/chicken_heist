@@ -8,4 +8,4 @@
 stream = ExtResource("1_dahq1")
 autoplay = true
 bus = &"BackgroundMusicBus"
-parameters/looping = false
+parameters/looping = true
