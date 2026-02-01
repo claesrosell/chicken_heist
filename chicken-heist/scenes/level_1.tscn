@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjtqskutwfbip" path="res://scenes/gate/gate.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://nhbdaxqsnau8" path="res://scenes/heros.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cwnh4h4y8r1lv" path="res://scenes/hen/hen_spawner.tscn" id="6_fcfvj"]
+[ext_resource type="Theme" uid="uid://cu6me2cuo4f22" path="res://scenes/main_menu/main_menu.tres" id="7_pa8r4"]
 
 [sub_resource type="Animation" id="Animation_fcfvj"]
 length = 0.001
@@ -171,6 +172,18 @@ shape = SubResource("RectangleShape2D_fcfvj")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1041026574]
 position = Vector2(-753, 350)
 zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371082142]
+
+[node name="HurryUpLabel" type="Label" parent="CanvasLayer" unique_id=102413478]
+z_index = 100
+offset_left = 548.0
+offset_top = 231.0
+offset_right = 1453.0
+offset_bottom = 328.0
+theme = ExtResource("7_pa8r4")
+theme_override_font_sizes/font_size = 80
+text = "Hurry up, the gate is open!"
 
 [connection signal="body_entered" from="StartLevelArea2D" to="." method="_on_start_level_area_2d_body_entered"]
 [connection signal="body_entered" from="EndLevelArea2D" to="." method="_on_end_level_area_2d_body_entered"]
