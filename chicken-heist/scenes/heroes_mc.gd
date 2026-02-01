@@ -34,6 +34,7 @@ var previous_acceleration_state := false
 
 # Throttle sound audio stream player
 @onready var throttle_mc_audio_player:AudioStreamPlayer2D = %ThrottleMcSound
+@onready var gpu_particles_2d: GPUParticles2D = $GPUParticles2D
 
 var skid_width := 10.0
 var skid_color := Color(0.1, 0.1, 0.1, 0.4) # Dark gray, semi-transparent
@@ -71,6 +72,7 @@ func get_input() -> void:
 
 	if started_acceleration:
 		throttle_mc_audio_player.play()
+		gpu_particles_2d.emitting = true
 
 	if gas_pressure > 0:
 		acceleration = transform.x * engine_power * gas_pressure

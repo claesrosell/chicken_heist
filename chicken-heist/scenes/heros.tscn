@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ck5q8ln0weaho" path="res://art/lasso_line.png" id="17_ocldu"]
 [ext_resource type="Texture2D" uid="uid://cu4or66wm7ysm" path="res://art/LassoMiss.png" id="17_uv8w7"]
 [ext_resource type="AudioStream" uid="uid://xkiswl1lohw2" path="res://sound/throttle_mc_sound.wav" id="17_vjtpe"]
+[ext_resource type="Texture2D" uid="uid://dk3eo58r8tkgm" path="res://art/smoke_puff.png" id="21_s8iyv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8ehe"]
 radius = 25.000011
@@ -126,6 +127,33 @@ _data = {
 &"RESET": SubResource("Animation_tyrc1"),
 &"WaveTail": SubResource("Animation_goik3")
 }
+
+[sub_resource type="Gradient" id="Gradient_s8iyv"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_erexd"]
+gradient = SubResource("Gradient_s8iyv")
+
+[sub_resource type="Curve" id="Curve_s8iyv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_erexd"]
+curve = SubResource("Curve_s8iyv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_erexd"]
+particle_flag_disable_z = true
+angle_min = -243.0
+angle_max = 163.20001
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 0, 0)
+damping_min = 20.0
+damping_max = 40.0
+scale_curve = SubResource("CurveTexture_erexd")
+color_ramp = SubResource("GradientTexture1D_erexd")
+turbulence_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1996094320]
 collision_layer = 2
@@ -266,6 +294,16 @@ bus = &"MC"
 unique_name_in_owner = true
 stream = ExtResource("17_vjtpe")
 bus = &"MC"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1074465835]
+z_index = 10
+position = Vector2(-18, -3)
+emitting = false
+amount = 16
+texture = ExtResource("21_s8iyv")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_erexd")
 
 [connection signal="area_entered" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Raccon/Aim/Area2D" to="Raccon" method="_on_area_2d_area_exited"]
