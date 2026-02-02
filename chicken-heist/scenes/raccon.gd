@@ -101,6 +101,8 @@ func _process(delta: float) -> void:
 		if current_pickable != null:
 			GameManager.modify_score(current_pickable.get_points())
 			current_pickable.picked()
+			current_pickable = null
+
 			show_fetch_type = FetchType.Hit
 		else:
 			show_fetch_type = FetchType.Miss
