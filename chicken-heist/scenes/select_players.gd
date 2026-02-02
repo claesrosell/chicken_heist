@@ -4,13 +4,7 @@ extends Node2D
 enum Character { FOXY, ROCKY }
 
 # Update your onready labels to include the new indicators
-@onready var options: Array[Label] = [%FoxyPlayerLabel, %RockyPlayerLabel]
-@onready var p1_indicators: Array[Label] = [%P1FoxyLabel, %P1RockyLabel]
-@onready var p2_indicators: Array[Label] = [%P2FoxyLabel, %P2RockyLabel]
-
-var default_color := Color(0.6, 0.2, 0.2) # Dark Red (Unselected)
-var highlight_color := Color(1.0, 1.0, 0.0) # Yellow (Hover)
-var ready_color := Color(0.0, 1.0, 0.0)     # Green (Locked In)
+@onready var options: Array[SelectableLabel] = [%FoxyPlayerLabel, %RockyPlayerLabel]
 
 # --- STATE ---
 # Tracks which option each player is hovering over (Foxy or Rocky)
@@ -25,22 +19,22 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# --- PLAYER 1 INPUTS ---
-	if not p1_ready:
+	if event.is_action_pressed("p1_button_b"):
+		cancel_ready(1) # This now runs regardless of p1_ready state
+	elif not p1_ready:
 		if event.is_action_pressed("p1_d_up") or event.is_action_pressed("p1_d_down"):
 			change_selection(1)
 		elif event.is_action_pressed("p1_button_a"):
 			lock_in(1)
-	elif event.is_action_pressed("p1_button_b"):
-		cancel_ready(1)
 
 	# --- PLAYER 2 INPUTS ---
-	if not p2_ready:
+	if event.is_action_pressed("p2_button_b"):
+		cancel_ready(2) # This now runs regardless of p2_ready state
+	elif not p2_ready:
 		if event.is_action_pressed("p2_d_up") or event.is_action_pressed("p2_d_down"):
 			change_selection(2)
 		elif event.is_action_pressed("p2_button_a"):
 			lock_in(2)
-	elif event.is_action_pressed("p2_button_b"):
-		cancel_ready(2)
 
 func change_selection(player_id: int) -> void:
 	if player_id == 1:
@@ -80,10 +74,24 @@ func lock_in(player_id: int) -> void:
 
 func cancel_ready(player_id: int) -> void:
 	if player_id == 1:
+		if p1_ready == false:
+			# Player 1 was ALREADY not ready, so they want to go back
+			go_back_to_menu()
+			return
 		p1_ready = false
 	else:
+		if p2_ready == false:
+			# Player 2 was ALREADY not ready
+			go_back_to_menu()
+			return
 		p2_ready = false
+	
 	update_visuals()
+
+func go_back_to_menu() -> void:
+	print("Moving back to main menu...")
+	# Replace this path with your actual main menu scene
+	get_tree().change_scene_to_file("res://scenes/main_menu/main-menu.tscn")
 
 func check_start() -> void:
 	if p1_ready and p2_ready:
@@ -103,20 +111,18 @@ func check_start() -> void:
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func update_visuals() -> void:
-	# 1. Reset everything to a base state
-	for i in range(options.size()):
-		# Hide all indicator stars by default
-		p1_indicators[i].visible = false
-		p2_indicators[i].visible = false
+	# 1. Reset all labels to a clean state
+	for label in options:
+		label.is_selected_1 = false
+		label.is_selected_2 = false
+		label.dual_mode = true # Ensure they can show two bullets if needed
 
-	# 2. Update Player 1 Visuals
-	var p1_idx = int(p1_choice)
-	p1_indicators[p1_idx].visible = true
-	# Optional: Change the indicator color to match the state
-	p1_indicators[p1_idx].modulate = ready_color if p1_ready else highlight_color
+	# 2. Handle Player 1
+	var p1_node = options[p1_choice]
+	p1_node.is_selected_1 = true
 
-	# 3. Update Player 2 Visuals
-	var p2_idx = int(p2_choice)
+	# 3. Handle Player 2
+	var p2_node = options[p2_choice]
+	p2_node.is_selected_2 = true
 
-	p2_indicators[p2_idx].visible = true
-	p2_indicators[p2_idx].modulate = ready_color if p2_ready else highlight_color
+	

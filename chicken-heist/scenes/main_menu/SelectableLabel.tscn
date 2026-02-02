@@ -16,15 +16,15 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Bullet1" type="Label" parent="HBoxContainer" unique_id=189266300]
+[node name="Bullet1" type="Panel" parent="HBoxContainer" unique_id=592004671]
 unique_name_in_owner = true
 layout_mode = 2
-text = "●"
+size_flags_vertical = 4
 
-[node name="Bullet2" type="Label" parent="HBoxContainer" unique_id=354230634]
+[node name="Bullet2" type="Panel" parent="HBoxContainer" unique_id=38453598]
 unique_name_in_owner = true
 layout_mode = 2
-text = "●"
+size_flags_vertical = 4
 
 [node name="Text" type="Label" parent="HBoxContainer" unique_id=232678149]
 unique_name_in_owner = true
